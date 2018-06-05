@@ -36,7 +36,35 @@ class PixelView: NSView {
                     square.fill()
                 }
             }
+
         }
+    }
+    
+    func drawSprite(_ sprite: [UInt8], atRow: Int, andColumn: Int) {
+        let bitRows = sprite.map(byteToPixels)
+        
+        for (r, bitRow) in bitRows.enumerated() {
+            let originalBits = pixels[atRow + r][andColumn ..< (andColumn + bitRow.count)]
+            
+            let newBits = zip(bitRow, originalBits).map {(arg) -> Bool in let (b1, b2) = arg; return b1 != b2}
+            
+            pixels[atRow + r].replaceSubrange(andColumn ..< (andColumn + bitRow.count), with: newBits)
+        }
+    }
+    
+    private func byteToPixels(_ b: UInt8) -> [Bool] {
+        let pixels: [Bool] = [
+            b & 128 != 0,
+            b & 64 != 0,
+            b & 32 != 0,
+            b & 16 != 0,
+            b & 8 != 0,
+            b & 4 != 0,
+            b & 2 != 0,
+            b & 1 != 0
+        ]
+        
+        return pixels
     }
     
 }

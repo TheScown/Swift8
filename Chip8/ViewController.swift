@@ -15,13 +15,10 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let pv = pixelView {
-            pv.pixels[0].replaceSubrange(5..<13, with: byteToPixels(240))
-            pv.pixels[1].replaceSubrange(5..<13, with: byteToPixels(144))
-            pv.pixels[2].replaceSubrange(5..<13, with: byteToPixels(144))
-            pv.pixels[3].replaceSubrange(5..<13, with: byteToPixels(144))
-            pv.pixels[4].replaceSubrange(5..<13, with: byteToPixels(240))
-            
+        if let pv = pixelView {         
+            pv.drawSprite([240, 144, 144, 144, 240], atRow: 0, andColumn: 6)
+            pv.drawSprite([240, 144, 144, 144, 240], atRow: 0, andColumn: 8)
+
             pv.setNeedsDisplay(pv.bounds)
         }
     }
@@ -30,21 +27,6 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
-    }
-
-    private func byteToPixels(_ b: UInt8) -> [Bool] {
-        let pixels: [Bool] = [
-            b & 1 != 0,
-            b & 2 != 0,
-            b & 4 != 0,
-            b & 8 != 0,
-            b & 16 != 0,
-            b & 32 != 0,
-            b & 64 != 0,
-            b & 128 != 0,
-        ]
-        
-        return pixels
     }
     
 }
