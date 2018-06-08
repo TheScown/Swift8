@@ -7,10 +7,13 @@
 //
 
 import Cocoa
+import AVFoundation
 
 class ViewController: NSViewController {
 
     @IBOutlet var pixelView: PixelView?
+    
+    var player = AVAudioPlayer()
     
     var ram: Array<UInt8> = [
         0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
@@ -36,11 +39,19 @@ class ViewController: NSViewController {
     var delay: UInt8 = 0
     var sound: UInt8 = 0
     var PC: UInt16 = 0
-    var SP: UInt16 = 0
+    var SP: UInt8 = 0
     var stack = [UInt16](repeating: 0, count: 16)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let path: String? = Bundle.main.path(forResource: "440", ofType: "wav")
+        
+        do {
+            try player = AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: path!))
+            player.numberOfLoops = -1
+        } catch {}
+        
         
         if let pv = pixelView {         
             for i in 0 ..< 16 {
