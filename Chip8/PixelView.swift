@@ -44,11 +44,12 @@ class PixelView: NSView {
         let bitRows = sprite.map(byteToPixels)
         
         for (r, bitRow) in bitRows.enumerated() {
-            let originalBits = pixels[atRow + r][andColumn ..< (andColumn + bitRow.count)]
+            let row: Int = (atRow + r) % 32
             
-            let newBits = zip(bitRow, originalBits).map {(arg) -> Bool in let (b1, b2) = arg; return b1 != b2}
-            
-            pixels[atRow + r].replaceSubrange(andColumn ..< (andColumn + bitRow.count), with: newBits)
+            for (c, b) in bitRow.enumerated() {
+                let col: Int = (andColumn + c) % 64
+                pixels[row][col] = pixels[row][col] != b
+            }
         }
     }
     

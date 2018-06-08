@@ -12,12 +12,40 @@ class ViewController: NSViewController {
 
     @IBOutlet var pixelView: PixelView?
     
+    var ram: Array<UInt8> = [
+        0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
+        0x20, 0x60, 0x20, 0x20, 0x70, // 1
+        0xF0, 0x10, 0xF0, 0x80, 0xF0, // 2
+        0xF0, 0x80, 0xF0, 0x10, 0xF0, // 3
+        0x90, 0x90, 0xF0, 0x10, 0x10, // 4
+        0xF0, 0x80, 0xF0, 0x10, 0xF0, // 5
+        0xF0, 0x80, 0xF0, 0x90, 0xF0, // 6
+        0xF0, 0x10, 0x20, 0x40, 0x40, // 7
+        0xF0, 0x90, 0xF0, 0x90, 0xF0, // 8
+        0xF0, 0x90, 0xF0, 0x10, 0xF0, // 9
+        0xF0, 0x90, 0xF0, 0x90, 0x90, // A
+        0xE0, 0x90, 0xE0, 0x90, 0xE0, // B
+        0xF0, 0x80, 0x80, 0x80, 0xF0, // C
+        0xE0, 0x90, 0x90, 0x90, 0xE0, // D
+        0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
+        0xF0, 0x80, 0xF0, 0x80, 0x80, // F
+    ] + [UInt8](repeating: 0, count: 4096 - 80)
+    
+    var V = [UInt8](repeating: 0, count: 16)
+    var I: UInt16 = 0
+    var delay: UInt8 = 0
+    var sound: UInt8 = 0
+    var PC: UInt16 = 0
+    var SP: UInt16 = 0
+    var stack = [UInt16](repeating: 0, count: 16)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let pv = pixelView {         
-            pv.drawSprite([240, 144, 144, 144, 240], atRow: 0, andColumn: 6)
-            pv.drawSprite([240, 144, 144, 144, 240], atRow: 0, andColumn: 8)
+            for i in 0 ..< 16 {
+                pv.drawSprite(accessRam(address: i * 5, length: 5), atRow: (i / 6) * 6, andColumn: i * 5 + 2)
+            }
 
             pv.setNeedsDisplay(pv.bounds)
         }
@@ -27,6 +55,10 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    private func accessRam(address: Int, length: Int) -> [UInt8] {
+        return Array(self.ram[address ..< address + length])
     }
     
 }

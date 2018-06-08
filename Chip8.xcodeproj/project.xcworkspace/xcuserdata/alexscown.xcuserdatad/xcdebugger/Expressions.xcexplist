@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ViewController.accessRam(address:length:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Array(self.ram[address ..&lt; address + length])">
+            </PersistentString>
+            <PersistentString
+               value = "self.ram[address ..&lt; address + length]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PixelView.draw(_:):PixelView.swift">
          <PersistentStrings>
             <PersistentString
