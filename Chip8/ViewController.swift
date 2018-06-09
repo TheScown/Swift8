@@ -12,6 +12,9 @@ import AVFoundation
 class ViewController: NSViewController {
 
     @IBOutlet var pixelView: PixelView?
+    @IBOutlet var textField: NSTextField?
+    @IBOutlet var open: NSButton?
+    @IBOutlet var run: NSButton?
     
     var player = AVAudioPlayer()
     
@@ -59,6 +62,31 @@ class ViewController: NSViewController {
             }
 
             pv.setNeedsDisplay(pv.bounds)
+        }
+    }
+    
+    @IBAction func openFile(sender: AnyObject) {
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Open...";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.allowsMultipleSelection = false;
+        
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+            if let result = dialog.url {
+                textField!.stringValue = result.path
+                
+                do {
+                    let data = try Data(contentsOf: result, options: .mappedIfSafe)
+                    
+                    let program = data[0 ..< min(4096 - 512, data.count)]
+                    
+                    ram.replaceSubrange(512 ..< 512 + program.count, with: program)
+                    
+                    run!.isEnabled = true
+                } catch {}
+            }
         }
     }
 
