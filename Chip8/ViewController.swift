@@ -54,15 +54,6 @@ class ViewController: NSViewController {
             try player = AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: path!))
             player.numberOfLoops = -1
         } catch {}
-        
-        
-        if let pv = pixelView {         
-            for i in 0 ..< 16 {
-                pv.drawSprite(accessRam(address: i * 5, length: 5), atRow: (i / 6) * 6, andColumn: i * 5 + 2)
-            }
-
-            pv.setNeedsDisplay(pv.bounds)
-        }
     }
     
     @IBAction func openFile(sender: AnyObject) {
