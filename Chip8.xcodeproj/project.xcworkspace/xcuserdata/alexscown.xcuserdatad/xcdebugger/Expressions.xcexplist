@@ -3,13 +3,44 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ViewController.RND(register:byte:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UInt8(arc4random_uniform(256)) &amp; byte">
+            </PersistentString>
+            <PersistentString
+               value = "UInt8(arc4random_uniform(256))">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ViewController.accessRam(address:length:):ViewController.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "address ..&lt; address + length">
+            </PersistentString>
             <PersistentString
                value = "Array(self.ram[address ..&lt; address + length])">
             </PersistentString>
             <PersistentString
                value = "self.ram[address ..&lt; address + length]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PixelView.drawSprite(_:atRow:andColumn:):PixelView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.ADD(register:byte:):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ViewController.execute():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "V[0]">
+            </PersistentString>
+            <PersistentString
+               value = "self.I">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -21,6 +52,23 @@
             </PersistentString>
             <PersistentString
                value = "self.bounds.maxY">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.CALL(address:):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.LDR(register:):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.openFile(sender:):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.getAddress(_:_:_:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UInt16(i4) + 16 * UInt16(i3) + 256 * UInt16(i2)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

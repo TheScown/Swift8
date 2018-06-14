@@ -136,7 +136,7 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Chip8" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="Chip8View" customModule="Chip8" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="512" height="324"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -160,6 +160,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="runWithSender:" target="XfG-lQ-9wD" id="yiu-bQ-roQ"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-bR-AKF">
                                 <rect key="frame" x="229" y="13" width="85" height="32"/>
@@ -172,12 +175,25 @@
                                     <action selector="openFileWithSender:" target="XfG-lQ-9wD" id="evT-JA-6KA"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-5n-puJ">
+                                <rect key="frame" x="366" y="14" width="69" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2KD-sO-uAD">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="haltWithSender:" target="XfG-lQ-9wD" id="Jh2-FC-toa"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="chip8View" destination="m2S-Jp-Qdl" id="TB0-ce-36V"/>
                         <outlet property="open" destination="tNL-bR-AKF" id="Ubm-AM-AF1"/>
                         <outlet property="pixelView" destination="lci-A3-0it" id="Lb5-aB-Om2"/>
                         <outlet property="run" destination="inC-qE-JIT" id="3hl-c5-wiA"/>
+                        <outlet property="stop" destination="6fq-5n-puJ" id="StS-2b-aJx"/>
                         <outlet property="textField" destination="7e0-Aj-k6K" id="a3B-cS-r20"/>
                     </connections>
                 </viewController>
