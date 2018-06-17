@@ -115,7 +115,12 @@ class ViewController: NSViewController {
     }
     
     @IBAction func halt(sender: AnyObject) {
-        haltFlag = true
+        if expectedKey != nil {
+            terminate()
+        }
+        else {
+            haltFlag = true
+        }
     }
 
     override var representedObject: Any? {
@@ -125,19 +130,23 @@ class ViewController: NSViewController {
     }
     
     override func keyDown(with event: NSEvent) {
-        if let string = event.charactersIgnoringModifiers {
-            queue.async {
-                print("keydown \(string)")
-                self.setKeys(string, true)
+        if isRunning {
+            if let string = event.charactersIgnoringModifiers {
+                queue.async {
+                    print("keydown \(string)")
+                    self.setKeys(string, true)
+                }
             }
         }
     }
     
     override func keyUp(with event: NSEvent) {
-        if let string = event.charactersIgnoringModifiers {
-            queue.async {
-                print("keyup \(string)")
-                self.setKeys(string, false)
+        if isRunning {
+            if let string = event.charactersIgnoringModifiers {
+                queue.async {
+                    print("keyup \(string)")
+                    self.setKeys(string, false)
+                }
             }
         }
     }
@@ -161,16 +170,20 @@ class ViewController: NSViewController {
         }
     }
     
+    private func terminate() {
+        haltFlag = false
+        
+        player.stop()
+        self.chip8View!.resignFirstResponder()
+        
+        isRunning = false
+        canRun = true
+        canStop = false
+    }
+    
     private func execute() {
         if haltFlag {
-            haltFlag = false
-            
-            player.stop()
-            self.chip8View!.resignFirstResponder()
-            
-            isRunning = false
-            canRun = true
-            canStop = false
+            terminate()
             
             return
         }
