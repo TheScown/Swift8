@@ -203,21 +203,25 @@ class ViewController: NSViewController {
             let now = DispatchTime.now()
             
             if (self.delay > 0) {
-                let difference = now.rawValue - self.delayAccess.rawValue
+                var difference = now.rawValue - self.delayAccess.rawValue
                 
-                if difference > 16 * 1_000_000 {
+                while difference > 16 * 1_000_000 && self.delay > 0 {
                     self.delay -= 1
+                    difference -= 16 * 1_000_000
                     self.delayAccess = now
                 }
+                
             }
             
             if (self.sound > 0) {
-                let difference = now.rawValue - self.soundAccess.rawValue
+                var difference = now.rawValue - self.soundAccess.rawValue
                 
-                if difference > 16 * 1_000_000 {
+                while difference > 16 * 1_000_000 && self.sound > 0 {
                     self.sound -= 1
+                    difference -= 16 * 1_000_000
                     self.soundAccess = now
                 }
+                
             }
             
             print(self.PC)
