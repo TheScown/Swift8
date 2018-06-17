@@ -54,21 +54,18 @@
                                     <items>
                                         <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
                                             <connections>
-                                                <action selector="openDocument:" target="Ady-hI-5gd" id="bVn-NM-KNZ"/>
+                                                <action selector="openDocument:" target="Ady-hI-5gd" id="Ilw-aR-dud"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Open Recent" id="tXI-mr-wws">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="oas-Oc-fiZ">
-                                                <items>
-                                                    <menuItem title="Clear Menu" id="vNY-rz-j42">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="clearRecentDocuments:" target="Ady-hI-5gd" id="Daa-9d-B3U"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
+                                        <menuItem title="Run" enabled="NO" keyEquivalent="r" id="b7L-sr-i90">
+                                            <connections>
+                                                <action selector="runChip8:" target="Ady-hI-5gd" id="4aC-ag-e0P"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Stop" enabled="NO" keyEquivalent="." id="pL3-yf-iIR">
+                                            <connections>
+                                                <action selector="stopChip8:" target="Ady-hI-5gd" id="zOT-Vp-F32"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -152,6 +149,13 @@
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="isRunning" id="3pR-el-P64">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inC-qE-JIT">
                                 <rect key="frame" x="314" y="13" width="52" height="32"/>
@@ -162,6 +166,7 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="runWithSender:" target="XfG-lQ-9wD" id="yiu-bQ-roQ"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canRun" id="XUq-84-BiH"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-bR-AKF">
@@ -173,10 +178,15 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="openFileWithSender:" target="XfG-lQ-9wD" id="evT-JA-6KA"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="isRunning" id="Arv-Tr-rYT">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-5n-puJ">
-                                <rect key="frame" x="366" y="14" width="69" height="32"/>
+                                <rect key="frame" x="366" y="13" width="69" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2KD-sO-uAD">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -184,6 +194,7 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="haltWithSender:" target="XfG-lQ-9wD" id="Jh2-FC-toa"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canStop" id="WMw-Z9-Xdp"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -17,6 +17,9 @@ class ViewController: NSViewController {
     @IBOutlet var open: NSButton?
     @IBOutlet var run: NSButton?
     @IBOutlet var stop: NSButton?
+    @objc dynamic var canRun: Bool = false
+    @objc dynamic var canStop: Bool = false
+    @objc dynamic var isRunning: Bool = false
     
     var player = AVAudioPlayer()
     
@@ -82,16 +85,17 @@ class ViewController: NSViewController {
             if let result = dialog.url {
                 textField!.stringValue = result.path
                 
-                run!.isEnabled = true
+                canRun = true
+                canStop = false
+                isRunning = false
             }
         }
     }
     
     @IBAction func run(sender: AnyObject) {
-        textField!.isEnabled = false
-        open!.isEnabled = false
-        run!.isEnabled = false
-        stop!.isEnabled = true
+        isRunning = true
+        canRun = false
+        canStop = true
         
         chip8View!.becomeFirstResponder()
         
@@ -118,10 +122,6 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
-    }
-    
-    override var acceptsFirstResponder : Bool {
-        return true
     }
     
     override func keyDown(with event: NSEvent) {
@@ -166,12 +166,11 @@ class ViewController: NSViewController {
             haltFlag = false
             
             player.stop()
-            self.chip8View!.becomeFirstResponder()
+            self.chip8View!.resignFirstResponder()
             
-            textField!.isEnabled = true
-            open!.isEnabled = true
-            run!.isEnabled = true
-            stop!.isEnabled = false
+            isRunning = false
+            canRun = true
+            canStop = false
             
             return
         }
