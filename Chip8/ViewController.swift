@@ -13,18 +13,14 @@ class ViewController: NSViewController {
 
     @IBOutlet var pixelView: PixelView?
     @IBOutlet var chip8View: Chip8View?
-    @IBOutlet var textField: NSTextField?
-    @IBOutlet var open: NSButton?
-    @IBOutlet var run: NSButton?
-    @IBOutlet var stop: NSButton?
     @objc dynamic var canRun: Bool = false
     @objc dynamic var canStop: Bool = false
     @objc dynamic var isRunning: Bool = false
+    @objc dynamic var filePath: String = ""
     
     var player = AVAudioPlayer()
     
-    var ram = [UInt8]()
-    
+    var ram = [UInt8]()    
     var V = [UInt8]()
     var I: UInt16 = 0
     var delay: UInt8 = 0
@@ -32,6 +28,7 @@ class ViewController: NSViewController {
     var PC: UInt16 = 0
     var SP: Int8 = 0
     var stack = [UInt16]()
+    
     var delayAccess: DispatchTime = DispatchTime.now()
     var soundAccess: DispatchTime = DispatchTime.now()
     var haltFlag = false
@@ -83,7 +80,7 @@ class ViewController: NSViewController {
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             if let result = dialog.url {
-                textField!.stringValue = result.path
+                filePath = result.path
                 
                 canRun = true
                 canStop = false
@@ -102,7 +99,7 @@ class ViewController: NSViewController {
         resetEmulator()
         
         do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: textField!.stringValue), options: .mappedIfSafe)
+            let data = try Data(contentsOf: URL(fileURLWithPath: filePath), options: .mappedIfSafe)
             
             let program = data[0 ..< min(4096 - 512, data.count)]
             

@@ -155,6 +155,7 @@
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="filePath" id="lUY-3R-xHy"/>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inC-qE-JIT">
@@ -201,11 +202,7 @@
                     </view>
                     <connections>
                         <outlet property="chip8View" destination="m2S-Jp-Qdl" id="TB0-ce-36V"/>
-                        <outlet property="open" destination="tNL-bR-AKF" id="Ubm-AM-AF1"/>
                         <outlet property="pixelView" destination="lci-A3-0it" id="Lb5-aB-Om2"/>
-                        <outlet property="run" destination="inC-qE-JIT" id="3hl-c5-wiA"/>
-                        <outlet property="stop" destination="6fq-5n-puJ" id="StS-2b-aJx"/>
-                        <outlet property="textField" destination="7e0-Aj-k6K" id="a3B-cS-r20"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
