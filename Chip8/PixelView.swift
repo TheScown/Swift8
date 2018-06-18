@@ -23,18 +23,19 @@ class PixelView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
-        NSColor.white.set()
-        self.bounds.fill()
-        
-        for row in Int(self.bounds.minY) / RES ..< Int(self.bounds.maxY) / RES {
-            for col in Int(self.bounds.minX) / RES ..< Int(self.bounds.maxX) / RES {
+        for row in Int(dirtyRect.minY) / RES ..< Int(ceil(Double(Int(dirtyRect.maxY) / RES))) {
+            for col in Int(dirtyRect.minX) / RES ..< Int(ceil(Double(Int(dirtyRect.maxX) / RES))) {
                 let isBlack = pixels[row][col]
                 let square = NSRect.init(x: col * RES, y: row * RES, width: RES, height: RES)
                 
                 if isBlack {
                     NSColor.black.set()
-                    square.fill()
                 }
+                else {
+                    NSColor.white.set()
+                }
+                
+                square.fill()
             }
 
         }
@@ -57,11 +58,11 @@ class PixelView: NSView {
                     }
                     
                     pixels[row][col] = oldValue != b
+                    
+                    self.setNeedsDisplay(NSRect(x: col * RES, y: row * RES, width: RES, height: RES))
                 }
             }
         }
-        
-        self.needsDisplay = true
         
         return returnValue
     }
