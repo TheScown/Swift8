@@ -111,12 +111,11 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
+                    <window key="window" title="Chip 8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="278" y="476" width="512" height="324"/>
+                        <rect key="contentRect" x="278" y="476" width="912" height="340"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="512" height="324"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -134,12 +133,15 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Chip8" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="Chip8View" customModule="Chip8" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="512" height="324"/>
+                        <rect key="frame" x="0.0" y="0.0" width="912" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lci-A3-0it" customClass="PixelView" customModule="Chip8" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="61" width="512" height="256"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="20" y="64" width="512" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="vram" destination="eGu-vR-i9Z" id="rnR-ZM-xFf"/>
+                                </connections>
                             </customView>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7e0-Aj-k6K">
                                 <rect key="frame" x="20" y="20" width="209" height="22"/>
@@ -150,16 +152,16 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="filePath" id="lUY-3R-xHy"/>
                                     <binding destination="XfG-lQ-9wD" name="enabled" keyPath="isRunning" id="3pR-el-P64">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="filePath" id="lUY-3R-xHy"/>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inC-qE-JIT">
-                                <rect key="frame" x="314" y="13" width="52" height="32"/>
+                                <rect key="frame" x="314" y="14" width="52" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TiD-23-LYJ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -171,7 +173,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-bR-AKF">
-                                <rect key="frame" x="229" y="13" width="85" height="32"/>
+                                <rect key="frame" x="229" y="14" width="85" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Open..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mrq-fD-IuE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -187,7 +189,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-5n-puJ">
-                                <rect key="frame" x="366" y="13" width="69" height="32"/>
+                                <rect key="frame" x="366" y="14" width="69" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2KD-sO-uAD">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -199,16 +201,38 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <connections>
+                            <outlet property="kram" destination="IeZ-75-jn9" id="PPH-Bi-2BS"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="chip8View" destination="m2S-Jp-Qdl" id="TB0-ce-36V"/>
+                        <outlet property="cpu" destination="dtb-O5-HUr" id="gkJ-5S-pas"/>
                         <outlet property="pixelView" destination="lci-A3-0it" id="Lb5-aB-Om2"/>
+                        <outlet property="ram" destination="ARW-O3-e7V" id="Zz3-Ee-LBQ"/>
+                        <outlet property="vram" destination="eGu-vR-i9Z" id="GC0-xq-DfU"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="M0V-DW-5MN"/>
+                <customObject id="eGu-vR-i9Z" userLabel="VRam" customClass="VRam" customModule="Chip8" customModuleProvider="target"/>
+                <customObject id="ARW-O3-e7V" customClass="Ram" customModule="Chip8" customModuleProvider="target"/>
+                <customObject id="DND-IE-p4T" customClass="Buzzer" customModule="Chip8" customModuleProvider="target"/>
+                <customObject id="IeZ-75-jn9" userLabel="KRam" customClass="KRam" customModule="Chip8" customModuleProvider="target"/>
+                <customObject id="qHv-nh-2kn" customClass="Timer" customModule="Chip8" customModuleProvider="target"/>
+                <customObject id="CH8-DP-SLx" customClass="Stack" customModule="Chip8" customModuleProvider="target"/>
+                <customObject id="dtb-O5-HUr" customClass="Cpu" customModule="Chip8" customModuleProvider="target">
+                    <connections>
+                        <outlet property="buzzer" destination="DND-IE-p4T" id="IJw-in-RIp"/>
+                        <outlet property="kram" destination="IeZ-75-jn9" id="xpY-hB-x0f"/>
+                        <outlet property="ram" destination="ARW-O3-e7V" id="nF4-16-yWr"/>
+                        <outlet property="stack" destination="CH8-DP-SLx" id="dEX-5d-NuQ"/>
+                        <outlet property="timer" destination="qHv-nh-2kn" id="LxE-5y-VlH"/>
+                        <outlet property="vram" destination="eGu-vR-i9Z" id="Xcm-NB-b48"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="75" y="779"/>
+            <point key="canvasLocation" x="275" y="787"/>
         </scene>
     </scenes>
 </document>

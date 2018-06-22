@@ -12,6 +12,8 @@ class Chip8View: NSView {
     
     weak var delegate: ViewController?
     
+    @IBOutlet var kram: KRam!
+    
     override var acceptsFirstResponder: Bool {
         get {
             return true
@@ -19,11 +21,11 @@ class Chip8View: NSView {
     }
     
     override func keyDown(with event: NSEvent) {
-        delegate!.keyDown(with: event)
+        kram.keyDown(with: event)
     }
     
     override func keyUp(with event: NSEvent) {
-        delegate!.keyUp(with: event)
+        kram.keyUp(with: event)
     }
     
     @IBAction func openDocument(_ sender: Any?) {

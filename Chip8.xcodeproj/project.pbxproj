@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E12E7EEA20CB352F00DB2CED /* 440.wav in Resources */ = {isa = PBXBuildFile; fileRef = E12E7EE920CB352F00DB2CED /* 440.wav */; };
+		E1556CF720DB030200F48661 /* Cpu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556CF620DB030200F48661 /* Cpu.swift */; };
+		E1556CF920DB048500F48661 /* Ram.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556CF820DB048500F48661 /* Ram.swift */; };
+		E1556CFB20DB099100F48661 /* Buzzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556CFA20DB099100F48661 /* Buzzer.swift */; };
+		E1556CFD20DB0B4800F48661 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556CFC20DB0B4800F48661 /* Timer.swift */; };
+		E1556CFF20DB0C7B00F48661 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556CFE20DB0C7B00F48661 /* Stack.swift */; };
+		E1556D0120DB0D8100F48661 /* VRam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556D0020DB0D8100F48661 /* VRam.swift */; };
+		E1556D0320DB8C0600F48661 /* KRam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556D0220DB8C0600F48661 /* KRam.swift */; };
 		E17DE0F220C06E3900F1F0D5 /* PixelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17DE0F120C06E3900F1F0D5 /* PixelView.swift */; };
 		E1ED646620B8868500D53027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED646520B8868500D53027 /* AppDelegate.swift */; };
 		E1ED646820B8868500D53027 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED646720B8868500D53027 /* ViewController.swift */; };
@@ -36,6 +43,13 @@
 /* Begin PBXFileReference section */
 		E12E7EE920CB352F00DB2CED /* 440.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 440.wav; path = ../../Downloads/440.wav; sourceTree = "<group>"; };
 		E12E7EEB20CB353200DB2CED /* 440.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440.wav; sourceTree = "<group>"; };
+		E1556CF620DB030200F48661 /* Cpu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cpu.swift; sourceTree = "<group>"; };
+		E1556CF820DB048500F48661 /* Ram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ram.swift; sourceTree = "<group>"; };
+		E1556CFA20DB099100F48661 /* Buzzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buzzer.swift; sourceTree = "<group>"; };
+		E1556CFC20DB0B4800F48661 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		E1556CFE20DB0C7B00F48661 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		E1556D0020DB0D8100F48661 /* VRam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRam.swift; sourceTree = "<group>"; };
+		E1556D0220DB8C0600F48661 /* KRam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRam.swift; sourceTree = "<group>"; };
 		E17DE0F120C06E3900F1F0D5 /* PixelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelView.swift; sourceTree = "<group>"; };
 		E1ED646220B8868500D53027 /* Chip8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chip8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED646520B8868500D53027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +119,13 @@
 				E1ED646F20B8868600D53027 /* Chip8.entitlements */,
 				E17DE0F120C06E3900F1F0D5 /* PixelView.swift */,
 				E1F5C69620CD62B000E1D06C /* Chip8View.swift */,
+				E1556CF620DB030200F48661 /* Cpu.swift */,
+				E1556CF820DB048500F48661 /* Ram.swift */,
+				E1556CFA20DB099100F48661 /* Buzzer.swift */,
+				E1556CFC20DB0B4800F48661 /* Timer.swift */,
+				E1556CFE20DB0C7B00F48661 /* Stack.swift */,
+				E1556D0020DB0D8100F48661 /* VRam.swift */,
+				E1556D0220DB8C0600F48661 /* KRam.swift */,
 			);
 			path = Chip8;
 			sourceTree = "<group>";
@@ -241,9 +262,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1ED646820B8868500D53027 /* ViewController.swift in Sources */,
+				E1556CFF20DB0C7B00F48661 /* Stack.swift in Sources */,
+				E1556CF720DB030200F48661 /* Cpu.swift in Sources */,
+				E1556D0320DB8C0600F48661 /* KRam.swift in Sources */,
+				E1556D0120DB0D8100F48661 /* VRam.swift in Sources */,
+				E1556CF920DB048500F48661 /* Ram.swift in Sources */,
+				E1556CFB20DB099100F48661 /* Buzzer.swift in Sources */,
 				E1F5C69720CD62B000E1D06C /* Chip8View.swift in Sources */,
 				E17DE0F220C06E3900F1F0D5 /* PixelView.swift in Sources */,
 				E1ED646620B8868500D53027 /* AppDelegate.swift in Sources */,
+				E1556CFD20DB0B4800F48661 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
