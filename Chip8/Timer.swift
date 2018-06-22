@@ -24,10 +24,10 @@ class Timer: NSObject {
     }
     
     private func decrement() {
-        delay -= 1
-        
         if (delay > 0) {
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(16)) {
+            delay -= 1
+
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
                 self.decrement()
             }
         }

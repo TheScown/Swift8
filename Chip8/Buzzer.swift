@@ -47,16 +47,16 @@ class Buzzer: NSObject {
             }
         }
         
-        DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(16)) {
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
             self.decrement()
         }
     }
     
     private func decrement() {
-        sound -= 1
-        
         if (sound > 0) {
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(16)) {
+            sound -= 1
+
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
                 self.decrement()
             }
         }
