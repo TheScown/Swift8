@@ -25,14 +25,14 @@ class PixelView: NSView {
         
         for row in Int(dirtyRect.minY) / RES ..< Int(ceil(Double(Int(dirtyRect.maxY) / RES))) {
             for col in Int(dirtyRect.minX) / RES ..< Int(ceil(Double(Int(dirtyRect.maxX) / RES))) {
-                let isBlack = vram.pixels[row][col]
+                let isWhite = vram.pixels[row][col]
                 let square = NSRect.init(x: col * RES, y: row * RES, width: RES, height: RES)
                 
-                if isBlack {
-                    NSColor.black.set()
+                if isWhite {
+                    NSColor.white.set()
                 }
                 else {
-                    NSColor.white.set()
+                    NSColor.black.set()
                 }
                 
                 square.fill()
