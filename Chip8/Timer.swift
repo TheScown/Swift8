@@ -11,15 +11,19 @@ import Cocoa
 class Timer: NSObject {
     var delay: UInt8 = 0
     
+    private let queue = DispatchQueue(label: "space.scown.chip8.delay", qos: .background)
+    
     func reset() {
         delay = 0
     }
     
     func startTimer(x: UInt8) {
-        delay = x
-        
-        DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
-            self.decrement()
+        queue.sync {
+            self.delay = x
+            
+            self.queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
+                self.decrement()
+            }
         }
     }
     
@@ -27,7 +31,7 @@ class Timer: NSObject {
         if (delay > 0) {
             delay -= 1
 
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
+            self.queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
                 self.decrement()
             }
         }
