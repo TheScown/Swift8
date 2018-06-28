@@ -21,21 +21,21 @@ class PixelView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
+        NSColor.black.set()
+        dirtyRect.fill()
+        
+        NSColor.white.set()
+        
         let RES = vram.RES
         
         for row in Int(dirtyRect.minY) / RES ..< Int(ceil(Double(Int(dirtyRect.maxY) / RES))) {
             for col in Int(dirtyRect.minX) / RES ..< Int(ceil(Double(Int(dirtyRect.maxX) / RES))) {
                 let isWhite = vram.pixels[row][col]
-                let square = NSRect.init(x: col * RES, y: row * RES, width: RES, height: RES)
                 
                 if isWhite {
-                    NSColor.white.set()
+                    let square = NSRect.init(x: col * RES, y: row * RES, width: RES, height: RES)
+                    square.fill()
                 }
-                else {
-                    NSColor.black.set()
-                }
-                
-                square.fill()
             }
 
         }
