@@ -16,6 +16,8 @@
 		E1556D0120DB0D8100F48661 /* VRam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556D0020DB0D8100F48661 /* VRam.swift */; };
 		E1556D0320DB8C0600F48661 /* KRam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556D0220DB8C0600F48661 /* KRam.swift */; };
 		E17DE0F220C06E3900F1F0D5 /* PixelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17DE0F120C06E3900F1F0D5 /* PixelView.swift */; };
+		E19EFE6F2102523300332ECF /* Registers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EFE6E2102523300332ECF /* Registers.swift */; };
+		E19EFE712102529700332ECF /* ByteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EFE702102529700332ECF /* ByteCell.swift */; };
 		E1ED646620B8868500D53027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED646520B8868500D53027 /* AppDelegate.swift */; };
 		E1ED646820B8868500D53027 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED646720B8868500D53027 /* ViewController.swift */; };
 		E1ED646A20B8868600D53027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1ED646920B8868600D53027 /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		E1556D0020DB0D8100F48661 /* VRam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRam.swift; sourceTree = "<group>"; };
 		E1556D0220DB8C0600F48661 /* KRam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRam.swift; sourceTree = "<group>"; };
 		E17DE0F120C06E3900F1F0D5 /* PixelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelView.swift; sourceTree = "<group>"; };
+		E19EFE6E2102523300332ECF /* Registers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registers.swift; sourceTree = "<group>"; };
+		E19EFE702102529700332ECF /* ByteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteCell.swift; sourceTree = "<group>"; };
 		E1ED646220B8868500D53027 /* Chip8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chip8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED646520B8868500D53027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1ED646720B8868500D53027 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				E1556CFE20DB0C7B00F48661 /* Stack.swift */,
 				E1556D0020DB0D8100F48661 /* VRam.swift */,
 				E1556D0220DB8C0600F48661 /* KRam.swift */,
+				E19EFE6E2102523300332ECF /* Registers.swift */,
+				E19EFE702102529700332ECF /* ByteCell.swift */,
 			);
 			path = Chip8;
 			sourceTree = "<group>";
@@ -270,7 +276,9 @@
 				E1556CFB20DB099100F48661 /* Buzzer.swift in Sources */,
 				E1F5C69720CD62B000E1D06C /* Chip8View.swift in Sources */,
 				E17DE0F220C06E3900F1F0D5 /* PixelView.swift in Sources */,
+				E19EFE712102529700332ECF /* ByteCell.swift in Sources */,
 				E1ED646620B8868500D53027 /* AppDelegate.swift in Sources */,
+				E19EFE6F2102523300332ECF /* Registers.swift in Sources */,
 				E1556CFD20DB0B4800F48661 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

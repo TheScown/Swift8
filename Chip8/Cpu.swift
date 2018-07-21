@@ -9,7 +9,6 @@
 import Cocoa
 
 class Cpu: NSObject {
-    var V = [UInt8]()
     var I: UInt16 = 0
     var PC: UInt16 = 0
     var haltFlag = false
@@ -22,12 +21,13 @@ class Cpu: NSObject {
     @IBOutlet var stack: Stack!
     @IBOutlet var vram: VRam!
     @IBOutlet var kram: KRam!
+    @IBOutlet var V: Registers!
     
     func reset() {
-        V = Array(repeating: 0, count: 16)
         I = 0
         PC = 512
         
+        V.reset()
         ram.reset()
         buzzer.reset()
         timer.reset()
@@ -361,16 +361,16 @@ class Cpu: NSObject {
         
         print(sprite)
         
+        let row: Int = Int(self.V[Int(registerY)])
+        let column: Int = Int(self.V[Int(registerX)])
+        
+        var collision = false
+        
         DispatchQueue.main.sync {
-            let collision = self.vram.drawSprite(sprite, atRow: Int(self.V[Int(registerY)]), andColumn: Int(self.V[Int(registerX)]))
-            
-            self.V[0xF] = collision ? 1 : 0
-            
-            if collision {
-                print("collision!")
-            }
+            collision = self.vram.drawSprite(sprite, atRow: row, andColumn: column)
         }
         
+        self.V[0xF] = collision ? 1 : 0
     }
     
     private func SKP(register: UInt8) {
