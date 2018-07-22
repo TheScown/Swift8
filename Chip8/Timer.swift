@@ -9,9 +9,9 @@
 import Cocoa
 
 class Timer: NSObject {
-    var delay: UInt8 = 0
+    @objc dynamic var delay: UInt8 = 0
     
-    private let queue = DispatchQueue(label: "space.scown.chip8.delay", qos: .background)
+    private let queue = DispatchQueue.main
     
     func reset() {
         delay = 0

@@ -10,9 +10,9 @@ import Cocoa
 import AVFoundation
 
 class Buzzer: NSObject {
-    private var sound: UInt8 = 0
+    @objc dynamic var sound: UInt8 = 0
     
-    private let queue = DispatchQueue(label: "space.scown.chip8.buzzer", qos: .background)
+    private let queue = DispatchQueue.main
     
     let player: AVAudioPlayer
     
@@ -35,10 +35,8 @@ class Buzzer: NSObject {
     
     func terminate() {
         sound = 0
-        
-        DispatchQueue.main.async {
-            self.player.pause()
-        }
+
+        self.player.pause()
     }
     
     func startTimer(x: UInt8) {
@@ -46,9 +44,7 @@ class Buzzer: NSObject {
             sound = x
             
             if (x > 0) {
-                DispatchQueue.main.async {
-                    self.player.play()
-                }
+                self.player.play()
             }
             
             queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
@@ -60,15 +56,13 @@ class Buzzer: NSObject {
     private func decrement() {
         if (sound > 0) {
             sound -= 1
-
+            
             queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.microseconds(16666)) {
                 self.decrement()
             }
         }
         else {
-            DispatchQueue.main.async {
-                self.player.pause()
-            }
+            self.player.pause()
         }
     }
     
