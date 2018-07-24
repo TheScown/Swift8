@@ -26,6 +26,7 @@ class Cpu: NSObject {
     func reset() {
         I = 0
         PC = 512
+        haltFlag = false
         
         V.reset()
         ram.reset()
@@ -46,8 +47,6 @@ class Cpu: NSObject {
     
     func terminate() {
         buzzer.terminate()
-        
-        haltFlag = false
     }
     
     func execute() {
