@@ -60,15 +60,19 @@ class ViewController: NSViewController {
         
         self.cpu.reset()
         
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: filePath), options: .mappedIfSafe)
+        queue.async {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: self.filePath), options: .mappedIfSafe)
             
-            let program = data[0 ..< min(4096 - 512, data.count)]
+                let program = data[0 ..< min(4096 - 512, data.count)]
             
-            self.ram[512 ..< 512 + program.count] = Array(program)
+                self.ram[512 ..< 512 + program.count] = Array(program)
             
-            execute()
-        } catch {}
+                DispatchQueue.main.async {
+                    self.execute()
+                }
+            } catch {}
+        }
     }
     
     @IBAction func halt(sender: AnyObject) {

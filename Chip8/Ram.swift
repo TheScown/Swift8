@@ -10,7 +10,7 @@ import Cocoa
 
 class Ram: NSObject {
 
-    private var ram = [ByteCell]()
+    @objc dynamic var ram = [ByteCell]()
     
     func reset() {
         ram = ([
@@ -38,16 +38,30 @@ class Ram: NSObject {
     
     subscript(index: Int) -> UInt8 {
         get {
-            return ram[index].byte
+            var result: UInt8 = 0
+            
+            DispatchQueue.main.sync {
+                result = ram[index].byte
+            }
+            
+            return result
         }
         set(newElm) {
-            ram[index] = ByteCell(index, newElm)
+            DispatchQueue.main.sync {
+                ram[index] = ByteCell(index, newElm)
+            }
         }
     }
     
     subscript(index: Range<Int>) -> [UInt8] {
         get {
-            return Array(ram[index]).map { byteCell in byteCell.byte }
+            var result = [UInt8]()
+            
+            DispatchQueue.main.sync {
+                result = Array(ram[index]).map { byteCell in byteCell.byte }
+            }
+            
+            return result
         }
         set(newElm) {
             let newCells = newElm.enumerated().map { arg -> ByteCell in
@@ -56,7 +70,9 @@ class Ram: NSObject {
                 return ByteCell(i + index.lowerBound, byte)
             }
             
-            ram.replaceSubrange(index, with: newCells)
+            DispatchQueue.main.sync {
+                ram.replaceSubrange(index, with: newCells)
+            }
         }
     }
     
