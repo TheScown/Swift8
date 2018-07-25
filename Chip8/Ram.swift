@@ -10,10 +10,10 @@ import Cocoa
 
 class Ram: NSObject {
 
-    private var ram = [UInt8]()
+    private var ram = [ByteCell]()
     
     func reset() {
-        ram = [
+        ram = ([
             0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
             0x20, 0x60, 0x20, 0x20, 0x70, // 1
             0xF0, 0x10, 0xF0, 0x80, 0xF0, // 2
@@ -30,24 +30,33 @@ class Ram: NSObject {
             0xE0, 0x90, 0x90, 0x90, 0xE0, // D
             0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
             0xF0, 0x80, 0xF0, 0x80, 0x80, // F
-        ] + [UInt8](repeating: 0, count: 4096 - 80)
+        ] + [UInt8](repeating: 0, count: 4096 - 80)).enumerated().map { arg in
+            let (address, byte) = arg
+            return ByteCell(address, byte)
+        }
     }
     
     subscript(index: Int) -> UInt8 {
         get {
-            return ram[index]
+            return ram[index].byte
         }
         set(newElm) {
-            ram[index] = newElm
+            ram[index] = ByteCell(index, newElm)
         }
     }
     
     subscript(index: Range<Int>) -> [UInt8] {
-        get {            
-            return Array(ram[index])
+        get {
+            return Array(ram[index]).map { byteCell in byteCell.byte }
         }
         set(newElm) {
-            ram.replaceSubrange(index, with: newElm)
+            let newCells = newElm.enumerated().map { arg -> ByteCell in
+                let (i, byte) = arg
+                
+                return ByteCell(i + index.lowerBound, byte)
+            }
+            
+            ram.replaceSubrange(index, with: newCells)
         }
     }
     
