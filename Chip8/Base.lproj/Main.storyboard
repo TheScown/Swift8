@@ -200,7 +200,7 @@
                                     <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canStop" id="WMw-Z9-Xdp"/>
                                 </connections>
                             </button>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYN-hx-ZK6">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYN-hx-ZK6" userLabel="Registers Bordered Scroll View - Table View">
                                 <rect key="frame" x="540" y="73" width="109" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="xS9-vb-xQv">
@@ -327,7 +327,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCW-cu-396">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCW-cu-396" userLabel="Stack Bordered Scroll View - Table View">
                                 <rect key="frame" x="657" y="73" width="109" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="mDa-w6-4n7">
@@ -506,14 +506,14 @@
                                     <binding destination="DND-IE-p4T" name="value" keyPath="sound" id="mJK-ta-2og"/>
                                 </connections>
                             </textField>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyU-BO-EAf">
+                            <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyU-BO-EAf" userLabel="Ram Bordered Scroll View - Table View">
                                 <rect key="frame" x="774" y="73" width="118" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="2dB-uA-AlC">
+                                <clipView key="contentView" wantsLayer="YES" ambiguous="YES" id="2dB-uA-AlC">
                                     <rect key="frame" x="1" y="1" width="116" height="304"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" id="oQV-SO-dVt">
+                                        <tableView wantsLayer="YES" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" id="oQV-SO-dVt">
                                             <rect key="frame" x="0.0" y="0.0" width="116" height="304"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -533,7 +533,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="igT-kJ-0By">
+                                                        <tableCellView wantsLayer="YES" id="igT-kJ-0By">
                                                             <rect key="frame" x="1" y="1" width="55" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -569,7 +569,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="HJI-hw-AoI">
+                                                        <tableCellView wantsLayer="YES" id="HJI-hw-AoI">
                                                             <rect key="frame" x="59" y="1" width="55" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -595,6 +595,7 @@
                                             </tableColumns>
                                             <connections>
                                                 <binding destination="8W5-pj-O0W" name="content" keyPath="arrangedObjects" id="9fF-VC-DjQ"/>
+                                                <binding destination="8W5-pj-O0W" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="9fF-VC-DjQ" id="X0D-hZ-Lr2"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -638,6 +639,7 @@
                 <arrayController id="8W5-pj-O0W" userLabel="Ram Array Controller">
                     <connections>
                         <binding destination="ARW-O3-e7V" name="contentArray" keyPath="ram" id="K2s-jp-gkF"/>
+                        <binding destination="dtb-O5-HUr" name="selectionIndexes" keyPath="pcIndex" id="RQm-vP-GR0"/>
                     </connections>
                 </arrayController>
                 <arrayController id="fvr-lA-TPR" userLabel="Stack Array Controller">
@@ -661,6 +663,7 @@
                         <outlet property="buzzer" destination="DND-IE-p4T" id="IJw-in-RIp"/>
                         <outlet property="kram" destination="IeZ-75-jn9" id="xpY-hB-x0f"/>
                         <outlet property="ram" destination="ARW-O3-e7V" id="nF4-16-yWr"/>
+                        <outlet property="ramTable" destination="oQV-SO-dVt" id="GZj-d3-yIi"/>
                         <outlet property="stack" destination="CH8-DP-SLx" id="dEX-5d-NuQ"/>
                         <outlet property="timer" destination="qHv-nh-2kn" id="LxE-5y-VlH"/>
                         <outlet property="vram" destination="eGu-vR-i9Z" id="Xcm-NB-b48"/>

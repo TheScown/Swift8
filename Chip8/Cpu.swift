@@ -11,6 +11,7 @@ import Cocoa
 class Cpu: NSObject {
     var I: UInt16 = 0
     var PC: UInt16 = 0
+    @objc dynamic var pcIndex: IndexSet = IndexSet()
     var haltFlag = false
     
     let queue = DispatchQueue(label: "space.scown.chip8", qos: .utility)
@@ -22,10 +23,11 @@ class Cpu: NSObject {
     @IBOutlet var vram: VRam!
     @IBOutlet var kram: KRam!
     @IBOutlet var V: Registers!
+    @IBOutlet var ramTable: NSTableView!
     
     func reset() {
         I = 0
-        PC = 512
+        setPC(512)
         haltFlag = false
         
         V.reset()
@@ -179,7 +181,9 @@ class Cpu: NSObject {
             }
             
             if advance {
-                self.PC += 2
+                DispatchQueue.main.sync {
+                    self.setPC(self.PC + 2)
+                }
             }
             
             if execute {
@@ -201,20 +205,33 @@ class Cpu: NSObject {
     private func RET() {
         print("RET")
         
-        self.PC = self.stack.pop()
+        let _ = DispatchQueue.main.sync {
+            pcIndex.remove(Int(PC))
+        }
+        
+        PC = stack.pop()
+        
+        DispatchQueue.main.sync {
+            pcIndex.insert(Int(PC))
+            ramTable.scrollRowToVisible(Int(PC))
+        }
     }
     
     private func JP(address: UInt16) {
         print("JP \(address)")
         
-        self.PC = address
+        DispatchQueue.main.sync {
+            setPC(address)
+        }
     }
     
     private func CALL(address: UInt16) {
         print("CALL \(address)")
         
         self.stack.push(self.PC)
-        self.PC = address
+        DispatchQueue.main.sync {
+            setPC(address)
+        }
     }
     
     private func SE(register: UInt8, byte: UInt8) {
@@ -223,7 +240,9 @@ class Cpu: NSObject {
         if (V[Int(register)] == byte) {
             print("true")
             
-            self.PC += 2
+            DispatchQueue.main.sync {
+                setPC(PC + 2)
+            }
         }
     }
     
@@ -233,7 +252,9 @@ class Cpu: NSObject {
         if (V[Int(register)] != byte) {
             print("true")
             
-            self.PC += 2
+            DispatchQueue.main.sync {
+                setPC(PC + 2)
+            }
         }
     }
     
@@ -243,7 +264,9 @@ class Cpu: NSObject {
         if (V[Int(registerX)] == V[Int(registerY)]) {
             print("true")
             
-            self.PC += 2
+            DispatchQueue.main.sync {
+                setPC(PC + 2)
+            }
         }
     }
     
@@ -331,7 +354,9 @@ class Cpu: NSObject {
         print("SNE R \(registerX), \(registerY)")
         
         if (V[Int(registerX)] != V[Int(registerY)]) {
-            self.PC += 2
+            DispatchQueue.main.sync {
+                setPC(PC + 2)
+            }
         }
     }
     
@@ -344,7 +369,9 @@ class Cpu: NSObject {
     private func JPA(address: UInt16) {
         print("JPA \(address)")
         
-        self.PC = address + UInt16(V[0])
+        DispatchQueue.main.sync {
+            setPC(address + UInt16(V[0]))
+        }
     }
     
     private func RND(register: UInt8, byte: UInt8) {
@@ -377,7 +404,9 @@ class Cpu: NSObject {
         
         if kram.keys[Int(V[Int(register)])] {
             print("true")
-            self.PC += 2
+            DispatchQueue.main.sync {
+                setPC(PC + 2)
+            }
         }
     }
     
@@ -386,7 +415,9 @@ class Cpu: NSObject {
         
         if !kram.keys[Int(V[Int(register)])] {
             print("true")
-            self.PC += 2
+            DispatchQueue.main.sync {
+                setPC(PC + 2)
+            }
         }
     }
     
@@ -473,5 +504,12 @@ class Cpu: NSObject {
     
     private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
         return (hi << 4) + lo
+    }
+    
+    private func setPC(_ newValue: UInt16) {
+        pcIndex.remove(Int(PC))
+        PC = newValue
+        pcIndex.insert(Int(PC))
+        ramTable.scrollRowToVisible(Int(PC))
     }
 }
