@@ -18,6 +18,7 @@
 		E17DE0F220C06E3900F1F0D5 /* PixelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17DE0F120C06E3900F1F0D5 /* PixelView.swift */; };
 		E19EFE6F2102523300332ECF /* Registers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EFE6E2102523300332ECF /* Registers.swift */; };
 		E19EFE712102529700332ECF /* ByteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EFE702102529700332ECF /* ByteCell.swift */; };
+		E1B9F33A210E0A82007BF36A /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B9F339210E0A82007BF36A /* Instructions.swift */; };
 		E1ED646620B8868500D53027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED646520B8868500D53027 /* AppDelegate.swift */; };
 		E1ED646820B8868500D53027 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED646720B8868500D53027 /* ViewController.swift */; };
 		E1ED646A20B8868600D53027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1ED646920B8868600D53027 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		E17DE0F120C06E3900F1F0D5 /* PixelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelView.swift; sourceTree = "<group>"; };
 		E19EFE6E2102523300332ECF /* Registers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registers.swift; sourceTree = "<group>"; };
 		E19EFE702102529700332ECF /* ByteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteCell.swift; sourceTree = "<group>"; };
+		E1B9F339210E0A82007BF36A /* Instructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		E1ED646220B8868500D53027 /* Chip8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chip8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED646520B8868500D53027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1ED646720B8868500D53027 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				E1556D0220DB8C0600F48661 /* KRam.swift */,
 				E19EFE6E2102523300332ECF /* Registers.swift */,
 				E19EFE702102529700332ECF /* ByteCell.swift */,
+				E1B9F339210E0A82007BF36A /* Instructions.swift */,
 			);
 			path = Chip8;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B9F33A210E0A82007BF36A /* Instructions.swift in Sources */,
 				E1ED646820B8868500D53027 /* ViewController.swift in Sources */,
 				E1556CFF20DB0C7B00F48661 /* Stack.swift in Sources */,
 				E1556CF720DB030200F48661 /* Cpu.swift in Sources */,

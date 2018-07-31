@@ -10,7 +10,7 @@ import Cocoa
 
 class Ram: NSObject {
 
-    @objc dynamic var ram = [ByteCell]()
+    @objc dynamic var ram = [RamCell]()
     
     func reset() {
         ram = ([
@@ -32,8 +32,12 @@ class Ram: NSObject {
             0xF0, 0x80, 0xF0, 0x80, 0x80, // F
         ] + [UInt8](repeating: 0, count: 4096 - 80)).enumerated().map { arg in
             let (address, byte) = arg
-            return ByteCell(address, byte)
+            return RamCell(address, byte, Nop())
         }
+    }
+    
+    func getInstructionAt(index: Int) -> Instruction {
+        return ram[index].instruction
     }
     
     subscript(index: Int) -> UInt8 {
@@ -48,7 +52,19 @@ class Ram: NSObject {
         }
         set(newElm) {
             DispatchQueue.main.sync {
-                ram[index] = ByteCell(index, newElm)
+                var instruction: Instruction = Nop()
+                var previousInstruction: Instruction = Nop()
+                
+                if index != ram.count - 1 {
+                    instruction = getInstruction(hi: newElm, lo: ram[index + 1].byte)
+                }
+                
+                if index != 0 {
+                    previousInstruction = getInstruction(hi: ram[index - 1].byte, lo: newElm)
+                    ram[index - 1] = RamCell(index - 1, ram[index - 1].byte, previousInstruction)
+                }
+                
+                ram[index] = RamCell(index, newElm, instruction)
             }
         }
     }
@@ -63,17 +79,41 @@ class Ram: NSObject {
             
             return result
         }
-        set(newElm) {
-            let newCells = newElm.enumerated().map { arg -> ByteCell in
-                let (i, byte) = arg
+        set(newElm) {          
+            for (i, byte) in newElm.enumerated() {
+                var instruction: Instruction = Nop()
+                var previousInstruction: Instruction = Nop()
                 
-                return ByteCell(i + index.lowerBound, byte)
-            }
-            
-            DispatchQueue.main.sync {
-                ram.replaceSubrange(index, with: newCells)
+                if i == index.count - 1 && index.lowerBound + i != ram.count - 1 {
+                    instruction = getInstruction(hi: byte, lo: ram[index.lowerBound + i + 1].byte)
+                }
+                
+                if (i == 0 && index.lowerBound != 0) || i != 0 {
+                    let previousAddress = index.lowerBound + i - 1
+                    previousInstruction = getInstruction(hi: ram[previousAddress].byte, lo: byte)
+                    
+                    DispatchQueue.main.sync {
+                        ram[previousAddress] = RamCell(previousAddress, ram[previousAddress].byte, previousInstruction)
+                    }
+                }
+                
+                DispatchQueue.main.sync {
+                    ram[index.lowerBound + i] = RamCell(i + index.lowerBound, byte, instruction)
+                }
             }
         }
     }
+}
+
+class RamCell: NSObject {
+    @objc dynamic let address: Int
+    @objc dynamic let byte: UInt8
+    @objc dynamic let instruction: Instruction
     
+    init(_ address: Int, _ byte: UInt8, _ instruction: Instruction) {
+        self.address = address
+        self.byte = byte
+        self.instruction = instruction
+        super.init()
+    }
 }

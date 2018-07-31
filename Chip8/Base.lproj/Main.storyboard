@@ -114,7 +114,7 @@
                     <window key="window" title="Chip 8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="278" y="476" width="912" height="340"/>
+                        <rect key="contentRect" x="278" y="476" width="1108" height="340"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -126,14 +126,14 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="288" y="246"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Chip8" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="Chip8View" customModule="Chip8" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="912" height="425"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1026" height="425"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lci-A3-0it" customClass="PixelView" customModule="Chip8" customModuleProvider="target">
@@ -507,14 +507,14 @@
                                 </connections>
                             </textField>
                             <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyU-BO-EAf" userLabel="Ram Bordered Scroll View - Table View">
-                                <rect key="frame" x="774" y="73" width="118" height="306"/>
+                                <rect key="frame" x="774" y="73" width="232" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" wantsLayer="YES" ambiguous="YES" id="2dB-uA-AlC">
-                                    <rect key="frame" x="1" y="1" width="116" height="304"/>
+                                    <rect key="frame" x="1" y="1" width="230" height="304"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView wantsLayer="YES" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" id="oQV-SO-dVt">
-                                            <rect key="frame" x="0.0" y="0.0" width="116" height="304"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="230" height="304"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -592,6 +592,46 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
+                                                <tableColumn identifier="" width="111" minWidth="10" maxWidth="3.4028234663852886e+38" id="Pj4-7Z-IqV">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="2oh-gD-v8u">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="5o4-xB-A4d">
+                                                            <rect key="frame" x="117" y="1" width="111" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField wantsLayer="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQO-Yj-zsr">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="111" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="Cjh-rD-e9n">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                        <connections>
+                                                                            <binding destination="5o4-xB-A4d" name="displayPatternValue1" keyPath="objectValue.instruction.mnemonic" id="QRo-Cg-Ne9">
+                                                                                <dictionary key="options">
+                                                                                    <string key="NSDisplayPattern">%{value1}@</string>
+                                                                                </dictionary>
+                                                                            </binding>
+                                                                        </connections>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="kQO-Yj-zsr" id="2gR-Oi-wWk"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
                                             </tableColumns>
                                             <connections>
                                                 <binding destination="8W5-pj-O0W" name="content" keyPath="arrangedObjects" id="9fF-VC-DjQ"/>
@@ -601,7 +641,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="kU3-fO-6Zo">
-                                    <rect key="frame" x="1" y="-14" width="0.0" height="15"/>
+                                    <rect key="frame" x="1" y="290" width="128" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="rdm-5z-BpD">
@@ -638,8 +678,8 @@
                 <customObject id="DND-IE-p4T" customClass="Buzzer" customModule="Chip8" customModuleProvider="target"/>
                 <arrayController id="8W5-pj-O0W" userLabel="Ram Array Controller">
                     <connections>
-                        <binding destination="ARW-O3-e7V" name="contentArray" keyPath="ram" id="K2s-jp-gkF"/>
                         <binding destination="dtb-O5-HUr" name="selectionIndexes" keyPath="pcIndex" id="RQm-vP-GR0"/>
+                        <binding destination="ARW-O3-e7V" name="contentArray" keyPath="ram" id="K2s-jp-gkF"/>
                     </connections>
                 </arrayController>
                 <arrayController id="fvr-lA-TPR" userLabel="Stack Array Controller">
@@ -671,7 +711,7 @@
                 </customObject>
                 <customObject id="Any-hz-Ssb" customClass="Registers" customModule="Chip8" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="275" y="829.5"/>
+            <point key="canvasLocation" x="332" y="829.5"/>
         </scene>
     </scenes>
 </document>
