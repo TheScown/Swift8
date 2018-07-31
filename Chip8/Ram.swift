@@ -9,6 +9,8 @@
 import Cocoa
 
 class Ram: NSObject {
+    
+    let RAM_SIZE = 4096
 
     @objc dynamic var ram = [RamCell]()
     
@@ -30,7 +32,7 @@ class Ram: NSObject {
             0xE0, 0x90, 0x90, 0x90, 0xE0, // D
             0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
             0xF0, 0x80, 0xF0, 0x80, 0x80, // F
-        ] + [UInt8](repeating: 0, count: 4096 - 80)).enumerated().map { arg in
+        ] + [UInt8](repeating: 0, count: RAM_SIZE - 80)).enumerated().map { arg in
             let (address, byte) = arg
             return RamCell(address, byte, Nop())
         }
@@ -55,13 +57,14 @@ class Ram: NSObject {
                 var instruction: Instruction = Nop()
                 var previousInstruction: Instruction = Nop()
                 
-                if index != ram.count - 1 {
+                if index != RAM_SIZE - 1 {
                     instruction = getInstruction(hi: newElm, lo: ram[index + 1].byte)
                 }
                 
                 if index != 0 {
-                    previousInstruction = getInstruction(hi: ram[index - 1].byte, lo: newElm)
-                    ram[index - 1] = RamCell(index - 1, ram[index - 1].byte, previousInstruction)
+                    let previousCell = ram[index - 1]
+                    previousInstruction = getInstruction(hi: previousCell.byte, lo: newElm)
+                    ram[index - 1] = previousCell.withInstruction(previousInstruction)
                 }
                 
                 ram[index] = RamCell(index, newElm, instruction)
@@ -79,27 +82,39 @@ class Ram: NSObject {
             
             return result
         }
-        set(newElm) {          
+        set(newElm) {
+            var newRam = [RamCell]()
+            
             for (i, byte) in newElm.enumerated() {
                 var instruction: Instruction = Nop()
                 var previousInstruction: Instruction = Nop()
                 
-                if i == index.count - 1 && index.lowerBound + i != ram.count - 1 {
-                    instruction = getInstruction(hi: byte, lo: ram[index.lowerBound + i + 1].byte)
-                }
-                
-                if (i == 0 && index.lowerBound != 0) || i != 0 {
-                    let previousAddress = index.lowerBound + i - 1
-                    previousInstruction = getInstruction(hi: ram[previousAddress].byte, lo: byte)
-                    
+                if i == index.count - 1 && index.lowerBound + i != RAM_SIZE - 1 {
                     DispatchQueue.main.sync {
-                        ram[previousAddress] = RamCell(previousAddress, ram[previousAddress].byte, previousInstruction)
+                        instruction = getInstruction(hi: byte, lo: ram[index.lowerBound + i + 1].byte)
                     }
                 }
                 
-                DispatchQueue.main.sync {
-                    ram[index.lowerBound + i] = RamCell(i + index.lowerBound, byte, instruction)
+                if (i == 0 && index.lowerBound != 0) {
+                    DispatchQueue.main.sync {
+                        let previousCell = ram[index.lowerBound + i - 1]
+                        previousInstruction = getInstruction(hi: previousCell.byte, lo: byte)
+                        
+                        ram[index.lowerBound + i - 1] = previousCell.withInstruction(previousInstruction)
+                    }
                 }
+                else {
+                    let previousCell = newRam[i - 1]
+                    previousInstruction = getInstruction(hi: newRam[i - 1].byte, lo: byte)
+                    
+                    newRam[i - 1] = previousCell.withInstruction(previousInstruction)
+                }
+                
+                newRam.append(RamCell(i + index.lowerBound, byte, instruction))
+            }
+            
+            DispatchQueue.main.sync {
+                ram.replaceSubrange(index, with: newRam)
             }
         }
     }
@@ -115,5 +130,9 @@ class RamCell: NSObject {
         self.byte = byte
         self.instruction = instruction
         super.init()
+    }
+    
+    func withInstruction(_ instruction: Instruction) -> RamCell {
+        return RamCell(address, byte, instruction)
     }
 }
