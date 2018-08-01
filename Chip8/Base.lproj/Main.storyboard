@@ -641,7 +641,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="kU3-fO-6Zo">
-                                    <rect key="frame" x="1" y="290" width="128" height="15"/>
+                                    <rect key="frame" x="1" y="-14" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="rdm-5z-BpD">
@@ -658,6 +658,42 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKZ-l9-s2x">
+                                <rect key="frame" x="768" y="14" width="77" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Pause" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kn8-SQ-ah1">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="pauseWithSender:" target="XfG-lQ-9wD" id="gce-gr-6ss"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canPause" id="YuF-XC-YaI"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqx-wQ-6Jc">
+                                <rect key="frame" x="845" y="14" width="95" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Continue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dbf-Ke-h82">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="unpauseWithSender:" target="XfG-lQ-9wD" id="ybU-Yv-KAl"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canContinue" id="IDR-O1-gqE"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yth-GE-ARS">
+                                <rect key="frame" x="940" y="14" width="68" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Step" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o0o-SB-hGQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="stepWithSender:" target="XfG-lQ-9wD" id="Gsu-VE-5oS"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canContinue" id="4du-lY-pke"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <connections>
                             <outlet property="kram" destination="IeZ-75-jn9" id="PPH-Bi-2BS"/>

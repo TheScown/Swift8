@@ -18,10 +18,44 @@ class ViewController: NSViewController {
     @IBOutlet var ram: Ram!
     @IBOutlet var vram: VRam!
     
+    @objc dynamic var filePath: String = ""
+    
     @objc dynamic var canRun: Bool = false
     @objc dynamic var canStop: Bool = false
-    @objc dynamic var isRunning: Bool = false
-    @objc dynamic var filePath: String = ""
+    
+    @objc dynamic var isRunning: Bool = false {
+        willSet {
+            self.willChangeValue(forKey: "canPause")
+            self.willChangeValue(forKey: "canContinue")
+        }
+        didSet {
+            self.didChangeValue(forKey: "canPause")
+            self.didChangeValue(forKey: "canContinue")
+        }
+    }
+    
+    @objc dynamic var paused: Bool = false {
+        willSet {
+            self.willChangeValue(forKey: "canPause")
+            self.willChangeValue(forKey: "canContinue")
+        }
+        didSet {
+            self.didChangeValue(forKey: "canPause")
+            self.didChangeValue(forKey: "canContinue")
+        }
+    }
+    
+    @objc dynamic var canPause: Bool {
+        get {
+            return isRunning && !paused
+        }
+    }
+    
+    @objc dynamic var canContinue: Bool {
+        get {
+            return isRunning && paused
+        }
+    }
     
     let queue = DispatchQueue(label: "space.scown.chip8", qos: .utility)
     
@@ -82,6 +116,22 @@ class ViewController: NSViewController {
         isRunning = false
         canRun = true
         canStop = false
+    }
+    
+    @IBAction func pause(sender: AnyObject) {
+        paused = true
+        cpu.pauseFlag = true
+    }
+    
+    @IBAction func unpause(sender: AnyObject) {
+        paused = false
+        cpu.pauseFlag = false
+        
+        cpu.execute()
+    }
+    
+    @IBAction func step(sender: AnyObject) {
+        cpu.execute()
     }
 
     override var representedObject: Any? {

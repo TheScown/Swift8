@@ -38,7 +38,6 @@ class KRam: NSObject {
     func keyDown(with event: NSEvent) {
         if let string = event.charactersIgnoringModifiers {
             queue.async {
-                print("keydown \(string)")
                 self.setKeys(string, true)
             }
         }
@@ -47,7 +46,6 @@ class KRam: NSObject {
     func keyUp(with event: NSEvent) {
         if let string = event.charactersIgnoringModifiers {
             queue.async {
-                print("keyup \(string)")
                 self.setKeys(string, false)
             }
         }

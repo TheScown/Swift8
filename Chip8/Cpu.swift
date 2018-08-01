@@ -13,6 +13,7 @@ class Cpu: NSObject {
     var PC: UInt16 = 0
     @objc dynamic var pcIndex: IndexSet = IndexSet()
     var haltFlag = false
+    var pauseFlag = false
     
     let queue = DispatchQueue(label: "space.scown.chip8", qos: .utility)
     
@@ -59,7 +60,6 @@ class Cpu: NSObject {
         }
         
         queue.async {
-            print(self.PC)
             let instruction = self.getNextInstruction()
             
             instruction.execute(onCpu: self)
@@ -70,8 +70,8 @@ class Cpu: NSObject {
                 }
             }
             
-            if !instruction.pause {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if !(self.pauseFlag || instruction.pause) {
                     self.execute()
                 }
             }
@@ -79,16 +79,12 @@ class Cpu: NSObject {
     }
     
     func CLS() {
-        print("CLS")
-        
         DispatchQueue.main.sync {
             self.vram.clear()
         }
     }
     
     func RET() {
-        print("RET")
-        
         let _ = DispatchQueue.main.sync {
             pcIndex.remove(Int(PC))
         }
@@ -102,28 +98,21 @@ class Cpu: NSObject {
     }
     
     func JP(address: UInt16) {
-        print("JP \(address)")
-        
         DispatchQueue.main.sync {
             setPC(address)
         }
     }
     
     func CALL(address: UInt16) {
-        print("CALL \(address)")
-        
         self.stack.push(self.PC)
+        
         DispatchQueue.main.sync {
             setPC(address)
         }
     }
     
     func SE(register: UInt8, byte: UInt8) {
-        print("SE \(register), \(byte)")
-        
         if (V[Int(register)] == byte) {
-            print("true")
-            
             DispatchQueue.main.sync {
                 setPC(PC + 2)
             }
@@ -131,11 +120,7 @@ class Cpu: NSObject {
     }
     
     func SNE(register: UInt8, byte: UInt8) {
-        print("SNE \(register), \(byte)")
-        
         if (V[Int(register)] != byte) {
-            print("true")
-            
             DispatchQueue.main.sync {
                 setPC(PC + 2)
             }
@@ -143,11 +128,7 @@ class Cpu: NSObject {
     }
     
     func SE(registerX: UInt8, registerY: UInt8) {
-        print("SE R \(registerX), \(registerY)")
-        
         if (V[Int(registerX)] == V[Int(registerY)]) {
-            print("true")
-            
             DispatchQueue.main.sync {
                 setPC(PC + 2)
             }
@@ -155,44 +136,30 @@ class Cpu: NSObject {
     }
     
     func LD(register: UInt8, byte: UInt8) {
-        print("LD \(register), \(byte)")
-        
         V[Int(register)] = byte
     }
     
     func ADD(register: UInt8, byte: UInt8) {
-        print("ADD \(register), \(byte)")
-        
         (V[Int(register)], _) = V[Int(register)].addingReportingOverflow(byte)
     }
     
     func LD(registerX: UInt8, registerY: UInt8) {
-        print("LD R \(registerX), \(registerY)")
-        
         V[Int(registerX)] = V[Int(registerY)]
     }
     
     func OR(registerX: UInt8, registerY: UInt8) {
-        print("OR \(registerX), \(registerY)")
-        
         V[Int(registerX)] = V[Int(registerX)] | V[Int(registerY)]
     }
     
     func AND(registerX: UInt8, registerY: UInt8) {
-        print("AND \(registerX), \(registerY)")
-        
         V[Int(registerX)] = V[Int(registerX)] & V[Int(registerY)]
     }
     
     func XOR(registerX: UInt8, registerY: UInt8) {
-        print("XOR \(registerX), \(registerY)")
-        
         V[Int(registerX)] = V[Int(registerX)] ^ V[Int(registerY)]
     }
     
     func ADD(registerX: UInt8, registerY: UInt8) {
-        print("ADD R \(registerX), \(registerY)")
-        
         let overflow: Bool
         
         (V[Int(registerX)], overflow) = V[Int(registerX)].addingReportingOverflow(V[Int(registerY)])
@@ -203,40 +170,30 @@ class Cpu: NSObject {
     }
     
     func SUB(registerX: UInt8, registerY: UInt8) {
-        print("SUB \(registerX), \(registerY)")
-        
         V[0xF] = V[Int(registerX)] > V[Int(registerY)] ? 1 : 0
         
         (V[Int(registerX)], _) = V[Int(registerX)].subtractingReportingOverflow(V[Int(registerY)])
     }
     
     func SHR(registerX: UInt8, registerY: UInt8) {
-        print("SHR \(registerX), \(registerY)")
-        
         V[0xF] = (V[Int(registerX)] % 2) == 1 ? 1 : 0
         
         V[Int(registerX)] = V[Int(registerX)] >> 1
     }
     
     func SUBN(registerX: UInt8, registerY: UInt8) {
-        print("SUBN \(registerX), \(registerY)")
-        
         V[0xF] = V[Int(registerY)] > V[Int(registerX)] ? 1 : 0
         
         (V[Int(registerX)], _) = V[Int(registerY)].subtractingReportingOverflow(V[Int(registerX)])
     }
     
     func SHL(registerX: UInt8, registerY: UInt8) {
-        print("SHL \(registerX), \(registerY)")
-        
         V[0xF] = (V[Int(registerX)] & 0x80) == 0x80 ? 1 : 0
         
         V[Int(registerX)] = V[Int(registerX)] << 1
     }
     
     func SNE(registerX: UInt8, registerY: UInt8) {
-        print("SNE R \(registerX), \(registerY)")
-        
         if (V[Int(registerX)] != V[Int(registerY)]) {
             DispatchQueue.main.sync {
                 setPC(PC + 2)
@@ -245,32 +202,22 @@ class Cpu: NSObject {
     }
     
     func LD(address: UInt16) {
-        print("LD I \(address)")
-        
         self.I = address
     }
     
     func JPA(address: UInt16) {
-        print("JPA \(address)")
-        
         DispatchQueue.main.sync {
             setPC(address + UInt16(V[0]))
         }
     }
     
     func RND(register: UInt8, byte: UInt8) {
-        print("RND \(register), \(byte)")
-        
         V[Int(register)] = UInt8(arc4random_uniform(256)) & byte
     }
     
     func DRW(registerX: UInt8, registerY: UInt8, length: UInt8) {
-        print("DRW \(registerX), \(registerY), \(length)")
-        
         let sprite = ram[Int(self.I) ..< (Int(self.I) + Int(length))]
-        
-        print(sprite)
-        
+                
         let row: Int = Int(self.V[Int(registerY)])
         let column: Int = Int(self.V[Int(registerX)])
         
@@ -284,10 +231,7 @@ class Cpu: NSObject {
     }
     
     func SKP(register: UInt8) {
-        print("SKP \(register)")
-        
         if kram.keys[Int(V[Int(register)])] {
-            print("true")
             DispatchQueue.main.sync {
                 setPC(PC + 2)
             }
@@ -295,10 +239,7 @@ class Cpu: NSObject {
     }
     
     func SKNP(register: UInt8) {
-        print("SKNP \(register) \(V[Int(register)])")
-        
         if !kram.keys[Int(V[Int(register)])] {
-            print("true")
             DispatchQueue.main.sync {
                 setPC(PC + 2)
             }
@@ -306,14 +247,10 @@ class Cpu: NSObject {
     }
     
     func LD(register: UInt8) {
-        print("LD DELAY \(register)")
-        
         V[Int(register)] = timer.delay
     }
     
     func LDK(register: UInt8) {
-        print("LDK \(register)")
-        
         kram.keyHandler = { (_ k : UInt8) -> () in
             self.V[Int(register)] = k
             
@@ -324,32 +261,22 @@ class Cpu: NSObject {
     }
     
     func DT(register: UInt8) {
-        print("DT \(register)")
-        
         timer.startTimer(x: V[Int(register)])
     }
     
     func ST(register: UInt8) {
-        print("ST \(register)")
-        
         buzzer.startTimer(x: V[Int(register)])
     }
     
     func ADD(register: UInt8) {
-        print("ADD \(register)")
-        
         I = I + UInt16(V[Int(register)])
     }
     
     func LDS(register: UInt8) {
-        print("SPRITE \(register)")
-        
         I = 5 * UInt16(V[Int(register)])
     }
     
     func BCD(register: UInt8) {
-        print("BCD \(register)")
-        
         let value = V[Int(register)]
         let hundreds = value / 100
         let tens = (value % 100) / 10
@@ -361,16 +288,12 @@ class Cpu: NSObject {
     }
     
     func STO(register: UInt8) {
-        print("STO \(register)")
-        
         for i in 0 ... register {
             ram[Int(I + UInt16(i))] = V[Int(i)]
         }
     }
     
     func LDR(register: UInt8) {
-        print("LDR \(register)")
-        
         for i in 0 ... register {
             V[Int(i)] = ram[Int(I + UInt16(i))]
         }
