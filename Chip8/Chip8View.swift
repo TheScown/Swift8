@@ -10,7 +10,7 @@ import Cocoa
 
 class Chip8View: NSView {
     
-    weak var delegate: ViewController?
+    weak var delegate: ViewController!
     
     @IBOutlet var kram: KRam!
     
@@ -29,26 +29,26 @@ class Chip8View: NSView {
     }
     
     @IBAction func openDocument(_ sender: Any?) {
-        delegate!.openFile(sender: self)
+        delegate.openFile(sender: self)
     }
     
     @IBAction func runChip8(_ sender: AnyObject) {
-        delegate!.run(sender: sender)
+        delegate.run(sender: sender)
     }
     
     @IBAction func stopChip8(_ sender: AnyObject) {
-        delegate!.halt(sender: sender)
+        delegate.halt(sender: sender)
     }
     
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         if menuItem.action == #selector(Chip8View.runChip8(_:)) {
-            return delegate!.canRun
+            return delegate.canRun
         }
         else if menuItem.action == #selector(Chip8View.stopChip8(_:)) {
-            return delegate!.canStop
+            return delegate.canStop
         }
         else if menuItem.action == #selector(Chip8View.openDocument(_:)) {
-            return !(delegate!.isRunning)
+            return !(delegate.isRunning)
         }
         
         return true;
