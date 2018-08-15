@@ -12,6 +12,7 @@ import Foundation
     var mnemonic: String { get }
     var advance: Bool { get }
     var pause: Bool { get }
+    var breakpoint: Bool { get set }
     func execute(onCpu: Cpu)
 }
 
@@ -144,6 +145,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let mnemonic = ""
     let advance = false
     let pause = true
+    var breakpoint = false
     
     func execute(onCpu: Cpu) {}
 }
@@ -152,6 +154,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let mnemonic = "CLS"
     let advance = true
     let pause = false
+    var breakpoint = false
     
     func execute(onCpu: Cpu) {
         onCpu.CLS()
@@ -162,6 +165,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let mnemonic = "RET"
     let advance = true
     let pause = false
+    var breakpoint = false
     
     func execute(onCpu: Cpu) {
         onCpu.RET()
@@ -172,6 +176,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let address: UInt16
     let advance = false
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -192,6 +197,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let address: UInt16
     let advance = false
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -213,6 +219,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let byte: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -235,6 +242,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let byte: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -257,6 +265,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -279,6 +288,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let byte: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -301,6 +311,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let byte: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -323,6 +334,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -345,6 +357,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -367,6 +380,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -389,6 +403,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -411,6 +426,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -433,6 +449,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -455,6 +472,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -477,6 +495,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -499,6 +518,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -521,6 +541,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let registerY: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -542,6 +563,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let address: UInt16
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -562,6 +584,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let address: UInt16
     let advance = false
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -583,6 +606,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let byte: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -606,6 +630,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let length: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -628,6 +653,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -648,6 +674,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -668,6 +695,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -689,6 +717,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = true
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -709,6 +738,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -729,6 +759,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -749,6 +780,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -769,6 +801,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -789,6 +822,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -809,6 +843,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {
@@ -829,6 +864,7 @@ private func getByte(_ hi: UInt8, _ lo: UInt8) -> UInt8 {
     let register: UInt8
     let advance = true
     let pause = false
+    var breakpoint = false
     
     var mnemonic: String {
         get {

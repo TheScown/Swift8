@@ -34,33 +34,31 @@ class ViewController: NSViewController {
         }
     }
     
-    @objc dynamic var paused: Bool = false {
-        willSet {
-            self.willChangeValue(forKey: "canPause")
-            self.willChangeValue(forKey: "canContinue")
-        }
-        didSet {
-            self.didChangeValue(forKey: "canPause")
-            self.didChangeValue(forKey: "canContinue")
-        }
-    }
-    
     @objc dynamic var canPause: Bool {
         get {
-            return isRunning && !paused
+            return isRunning && !cpu.pauseFlag
         }
     }
     
     @objc dynamic var canContinue: Bool {
         get {
-            return isRunning && paused
+            return isRunning && cpu.pauseFlag
         }
     }
     
     let queue = DispatchQueue(label: "space.scown.chip8", qos: .utility)
     
+    private var pauseFlagToken: NSKeyValueObservation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pauseFlagToken = cpu.observe(\.pauseFlag) {[weak self] object, change in
+            self!.willChangeValue(forKey: "canPause")
+            self!.willChangeValue(forKey: "canContinue")
+            self!.didChangeValue(forKey: "canPause")
+            self!.didChangeValue(forKey: "canContinue")
+        }
         
         chip8View!.delegate = self
         vram.pixelView = pixelView
@@ -119,12 +117,10 @@ class ViewController: NSViewController {
     }
     
     @IBAction func pause(sender: AnyObject) {
-        paused = true
         cpu.pauseFlag = true
     }
     
     @IBAction func unpause(sender: AnyObject) {
-        paused = false
         cpu.pauseFlag = false
         
         cpu.execute()

@@ -13,7 +13,7 @@ class Cpu: NSObject {
     var PC: UInt16 = 0
     @objc dynamic var pcIndex: IndexSet = IndexSet()
     var haltFlag = false
-    var pauseFlag = false
+    @objc dynamic var pauseFlag = false
     
     let queue = DispatchQueue(label: "space.scown.chip8", qos: .utility)
     
@@ -30,6 +30,7 @@ class Cpu: NSObject {
         I = 0
         setPC(512)
         haltFlag = false
+        pauseFlag = false
         
         V.reset()
         ram.reset()
@@ -70,7 +71,13 @@ class Cpu: NSObject {
                 }
             }
             
+            let nextInstruction = self.getNextInstruction()
+            
             DispatchQueue.main.async {
+                if nextInstruction.breakpoint {
+                    self.pauseFlag = true
+                }
+                
                 if !(self.pauseFlag || instruction.pause) {
                     self.execute()
                 }
