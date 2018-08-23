@@ -24,7 +24,8 @@ class Cpu: NSObject {
     @IBOutlet var vram: VRam!
     @IBOutlet var kram: KRam!
     @IBOutlet var V: Registers!
-    @IBOutlet var ramTable: NSTableView!
+    
+    var ramTable: NSTableView?
     
     func reset() {
         I = 0
@@ -100,7 +101,7 @@ class Cpu: NSObject {
         
         DispatchQueue.main.sync {
             pcIndex.insert(Int(PC))
-            ramTable.scrollRowToVisible(Int(PC))
+            ramTable?.scrollRowToVisible(Int(PC))
         }
     }
     
@@ -314,6 +315,6 @@ class Cpu: NSObject {
         pcIndex.remove(Int(PC))
         PC = newValue
         pcIndex.insert(Int(PC))
-        ramTable.scrollRowToVisible(Int(PC))
+        ramTable?.scrollRowToVisible(Int(PC))
     }
 }

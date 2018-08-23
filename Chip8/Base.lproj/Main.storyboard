@@ -105,17 +105,19 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="206" y="-61"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Chip 8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="Chip 8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="Chip8Window" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="278" y="476" width="1108" height="340"/>
+                        <rect key="contentRect" x="217" y="505" width="552" height="339"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="552" height="339"/>
+                        <value key="maxSize" type="size" width="552" height="339"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -126,82 +128,39 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288" y="246"/>
+            <point key="canvasLocation" x="95" y="160"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <!--Window Controller-->
+        <scene sceneID="H9H-z4-aoV">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Chip8" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="Chip8View" customModule="Chip8" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="1055" height="425"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <windowController showSeguePresentationStyle="single" id="UbU-aT-1Sl" sceneMemberID="viewController">
+                    <window key="window" title="Debugger" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="DebuggerWindow" animationBehavior="default" tabbingMode="disallowed" id="kvt-CM-PCy">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="893" y="320" width="535" height="424"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="UbU-aT-1Sl" id="pNz-pD-zgi"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="qoz-2m-Pfp" kind="relationship" relationship="window.shadowedContentViewController" id="UH2-xq-vO1"/>
+                    </connections>
+                </windowController>
+                <customObject id="iu2-VE-YaV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="796" y="338"/>
+        </scene>
+        <!--Debugger-->
+        <scene sceneID="Ghx-aS-XtK">
+            <objects>
+                <viewController title="Debugger" showSeguePresentationStyle="single" id="qoz-2m-Pfp" customClass="DebuggerViewController" customModule="Chip8" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Jwl-Gd-UNJ">
+                        <rect key="frame" x="0.0" y="0.0" width="535" height="424"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lci-A3-0it" customClass="PixelView" customModule="Chip8" customModuleProvider="target">
-                                <rect key="frame" x="20" y="149" width="512" height="256"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <outlet property="vram" destination="eGu-vR-i9Z" id="rnR-ZM-xFf"/>
-                                </connections>
-                            </customView>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7e0-Aj-k6K">
-                                <rect key="frame" x="20" y="105" width="209" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="a8g-ht-hHI">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="filePath" id="lUY-3R-xHy"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="isRunning" id="3pR-el-P64">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inC-qE-JIT">
-                                <rect key="frame" x="314" y="99" width="52" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TiD-23-LYJ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="runWithSender:" target="XfG-lQ-9wD" id="yiu-bQ-roQ"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canRun" id="XUq-84-BiH"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-bR-AKF">
-                                <rect key="frame" x="229" y="99" width="85" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Open..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mrq-fD-IuE">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="openFileWithSender:" target="XfG-lQ-9wD" id="evT-JA-6KA"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="isRunning" id="Arv-Tr-rYT">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-5n-puJ">
-                                <rect key="frame" x="366" y="99" width="69" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2KD-sO-uAD">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="haltWithSender:" target="XfG-lQ-9wD" id="Jh2-FC-toa"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canStop" id="WMw-Z9-Xdp"/>
-                                </connections>
-                            </button>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYN-hx-ZK6" userLabel="Registers Bordered Scroll View - Table View">
-                                <rect key="frame" x="540" y="73" width="109" height="306"/>
+                                <rect key="frame" x="20" y="73" width="109" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="xS9-vb-xQv">
                                     <rect key="frame" x="1" y="1" width="107" height="304"/>
@@ -244,7 +203,6 @@
                                                                                     <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
                                                                                 </dictionary>
                                                                             </binding>
-                                                                            <outlet property="formatter" destination="D4y-hy-Nlo" id="DFE-bq-vGC"/>
                                                                         </connections>
                                                                     </textFieldCell>
                                                                 </textField>
@@ -255,9 +213,10 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                     <connections>
-                                                        <binding destination="iyh-BG-Aoe" name="displayPatternValue1" keyPath="arrangedObjects" id="noB-z8-37g">
+                                                        <binding destination="w0n-Ao-bXI" name="displayPatternValue1" keyPath="arrangedObjects" id="pLe-Zf-ngg">
                                                             <dictionary key="options">
                                                                 <string key="NSDisplayPattern">%{value1}@</string>
+                                                                <string key="NSValueTransformerName">RegisterFormatter</string>
                                                             </dictionary>
                                                         </binding>
                                                     </connections>
@@ -298,7 +257,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                     <connections>
-                                                        <binding destination="iyh-BG-Aoe" name="displayPatternValue1" keyPath="arrangedObjects" id="gxO-7I-1vy">
+                                                        <binding destination="w0n-Ao-bXI" name="displayPatternValue1" keyPath="arrangedObjects" id="9Ln-SF-DlR">
                                                             <dictionary key="options">
                                                                 <string key="NSDisplayPattern">%{value1}@</string>
                                                             </dictionary>
@@ -319,7 +278,7 @@
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iF4-iC-Sux">
-                                <rect key="frame" x="540" y="387" width="61" height="17"/>
+                                <rect key="frame" x="20" y="387" width="61" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Registers" id="MYY-1c-eqU">
                                     <font key="font" metaFont="system"/>
@@ -328,7 +287,7 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCW-cu-396" userLabel="Stack Bordered Scroll View - Table View">
-                                <rect key="frame" x="657" y="73" width="109" height="306"/>
+                                <rect key="frame" x="137" y="73" width="109" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="mDa-w6-4n7">
                                     <rect key="frame" x="1" y="1" width="107" height="304"/>
@@ -380,13 +339,6 @@
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
-                                                    <connections>
-                                                        <binding destination="fvr-lA-TPR" name="displayPatternValue1" keyPath="arrangedObjects" id="0vS-aL-Zb3">
-                                                            <dictionary key="options">
-                                                                <string key="NSDisplayPattern">%{value1}@</string>
-                                                            </dictionary>
-                                                        </binding>
-                                                    </connections>
                                                 </tableColumn>
                                                 <tableColumn identifier="" width="52" minWidth="10" maxWidth="3.4028234663852886e+38" id="Jpv-ss-wwL">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
@@ -427,18 +379,11 @@
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
-                                                    <connections>
-                                                        <binding destination="fvr-lA-TPR" name="displayPatternValue1" keyPath="arrangedObjects" id="shh-bg-fPf">
-                                                            <dictionary key="options">
-                                                                <string key="NSDisplayPattern">%{value1}@</string>
-                                                            </dictionary>
-                                                        </binding>
-                                                    </connections>
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <binding destination="fvr-lA-TPR" name="content" keyPath="arrangedObjects" id="OVF-lP-coG"/>
-                                                <binding destination="fvr-lA-TPR" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="OVF-lP-coG" id="CiQ-Fc-4VR"/>
+                                                <binding destination="1Ky-h3-lta" name="content" keyPath="arrangedObjects" id="aXB-KF-BR7"/>
+                                                <binding destination="1Ky-h3-lta" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="aXB-KF-BR7" id="mcb-Y7-8Eg"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -453,7 +398,7 @@
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-IM-dP3">
-                                <rect key="frame" x="657" y="387" width="39" height="17"/>
+                                <rect key="frame" x="137" y="387" width="39" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Stack" id="G1f-eF-AC4">
                                     <font key="font" metaFont="system"/>
@@ -462,7 +407,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6r-TU-mMd">
-                                <rect key="frame" x="540" y="48" width="39" height="17"/>
+                                <rect key="frame" x="20" y="48" width="39" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Timer" id="9r8-DC-pDY">
                                     <font key="font" metaFont="system"/>
@@ -471,7 +416,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBu-ur-ypW">
-                                <rect key="frame" x="657" y="48" width="46" height="17"/>
+                                <rect key="frame" x="137" y="48" width="46" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Buzzer" id="ycn-jS-RVj">
                                     <font key="font" metaFont="system"/>
@@ -480,7 +425,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9F0-pa-FLg">
-                                <rect key="frame" x="540" y="20" width="109" height="22"/>
+                                <rect key="frame" x="20" y="20" width="109" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="zHd-8d-57T">
                                     <font key="font" metaFont="system"/>
@@ -488,18 +433,18 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="qHv-nh-2kn" name="value" keyPath="delay" id="ve4-8Q-KU9"/>
+                                    <binding destination="qoz-2m-Pfp" name="value" keyPath="parentController.cpu.timer.delay" id="gQa-bo-MGd"/>
                                 </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ug9-4m-8nq">
-                                <rect key="frame" x="657" y="20" width="109" height="22"/>
+                                <rect key="frame" x="137" y="20" width="109" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="PVW-Cg-LWD">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <connections>
-                                        <binding destination="DND-IE-p4T" name="value" keyPath="sound" id="Blv-DE-0Fs"/>
+                                        <binding destination="qoz-2m-Pfp" name="value" keyPath="parentController.cpu.buzzer.sound" id="CZq-Hn-VX4"/>
                                     </connections>
                                 </textFieldCell>
                                 <connections>
@@ -507,7 +452,7 @@
                                 </connections>
                             </textField>
                             <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyU-BO-EAf" userLabel="Ram Bordered Scroll View - Table View">
-                                <rect key="frame" x="774" y="73" width="261" height="306"/>
+                                <rect key="frame" x="254" y="73" width="261" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" wantsLayer="YES" ambiguous="YES" id="2dB-uA-AlC">
                                     <rect key="frame" x="1" y="1" width="259" height="304"/>
@@ -667,8 +612,8 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <binding destination="8W5-pj-O0W" name="content" keyPath="arrangedObjects" id="9fF-VC-DjQ"/>
-                                                <binding destination="8W5-pj-O0W" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="9fF-VC-DjQ" id="X0D-hZ-Lr2"/>
+                                                <binding destination="2BA-W8-ioV" name="content" keyPath="arrangedObjects" id="ZQD-RU-GGy"/>
+                                                <binding destination="2BA-W8-ioV" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="ZQD-RU-GGy" id="KeT-O7-zWU"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -683,7 +628,7 @@
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TJc-TR-RYX">
-                                <rect key="frame" x="774" y="387" width="33" height="17"/>
+                                <rect key="frame" x="254" y="387" width="33" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="RAM" id="2RS-fR-Ilp">
                                     <font key="font" metaFont="system"/>
@@ -692,39 +637,151 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKZ-l9-s2x">
-                                <rect key="frame" x="768" y="14" width="77" height="32"/>
+                                <rect key="frame" x="248" y="14" width="77" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Pause" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kn8-SQ-ah1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="pauseWithSender:" target="XfG-lQ-9wD" id="gce-gr-6ss"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canPause" id="YuF-XC-YaI"/>
+                                    <action selector="pauseWithSender:" target="qoz-2m-Pfp" id="EOk-Lc-vCl"/>
+                                    <binding destination="qoz-2m-Pfp" name="enabled" keyPath="parentController.canPause" id="0aN-zJ-9mh"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqx-wQ-6Jc">
-                                <rect key="frame" x="845" y="14" width="95" height="32"/>
+                                <rect key="frame" x="325" y="14" width="95" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Continue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dbf-Ke-h82">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="unpauseWithSender:" target="XfG-lQ-9wD" id="ybU-Yv-KAl"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canContinue" id="IDR-O1-gqE"/>
+                                    <action selector="unpauseWithSender:" target="qoz-2m-Pfp" id="yot-3Q-9Zb"/>
+                                    <binding destination="qoz-2m-Pfp" name="enabled" keyPath="parentController.canContinue" id="pBL-VY-BaS"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yth-GE-ARS">
-                                <rect key="frame" x="940" y="14" width="68" height="32"/>
+                                <rect key="frame" x="420" y="14" width="68" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Step" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o0o-SB-hGQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="stepWithSender:" target="XfG-lQ-9wD" id="Gsu-VE-5oS"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canContinue" id="4du-lY-pke"/>
+                                    <action selector="stepWithSender:" target="qoz-2m-Pfp" id="hnl-82-PsD"/>
+                                    <binding destination="qoz-2m-Pfp" name="enabled" keyPath="parentController.canContinue" id="buj-ku-Szo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="ramTable" destination="oQV-SO-dVt" id="Mt5-wU-t2i"/>
+                    </connections>
+                </viewController>
+                <customObject id="Bom-eb-P8E" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController id="2BA-W8-ioV" userLabel="Ram Array Controller">
+                    <connections>
+                        <binding destination="qoz-2m-Pfp" name="contentArray" keyPath="parentController.ram.ram" id="Kkj-MR-a0N"/>
+                        <binding destination="qoz-2m-Pfp" name="selectionIndexes" keyPath="parentController.cpu.pcIndex" id="uFh-UF-IdE"/>
+                    </connections>
+                </arrayController>
+                <userDefaultsController id="C45-Cc-bo8"/>
+                <arrayController id="1Ky-h3-lta" userLabel="Stack Array Controller">
+                    <connections>
+                        <binding destination="qoz-2m-Pfp" name="contentArray" keyPath="parentController.stack.stack" id="70k-y5-NOt"/>
+                        <binding destination="qoz-2m-Pfp" name="selectionIndexes" keyPath="parentController.stack.indexSet" id="4Yf-lc-sz1"/>
+                    </connections>
+                </arrayController>
+                <arrayController id="w0n-Ao-bXI" userLabel="Register Array Controller">
+                    <connections>
+                        <binding destination="qoz-2m-Pfp" name="contentArray" keyPath="parentController.cpu.V.registers" id="CJE-Cl-HdQ"/>
+                    </connections>
+                </arrayController>
+                <customFormatter id="bmu-aR-Si4" customClass="RegisterFormatter" customModule="Chip8" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="1019"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hIz-AP-VOD">
+            <objects>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Chip8" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="Chip8View" customModule="Chip8" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="552" height="339"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lci-A3-0it" customClass="PixelView" customModule="Chip8" customModuleProvider="target">
+                                <rect key="frame" x="20" y="63" width="512" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="vram" destination="eGu-vR-i9Z" id="rnR-ZM-xFf"/>
+                                </connections>
+                            </customView>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7e0-Aj-k6K">
+                                <rect key="frame" x="20" y="19" width="209" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="a8g-ht-hHI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="filePath" id="lUY-3R-xHy"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="isRunning" id="3pR-el-P64">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inC-qE-JIT">
+                                <rect key="frame" x="314" y="13" width="52" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TiD-23-LYJ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="runWithSender:" target="XfG-lQ-9wD" id="yiu-bQ-roQ"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canRun" id="XUq-84-BiH"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-bR-AKF">
+                                <rect key="frame" x="229" y="13" width="85" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Open..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mrq-fD-IuE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="openFileWithSender:" target="XfG-lQ-9wD" id="evT-JA-6KA"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="isRunning" id="Arv-Tr-rYT">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-5n-puJ">
+                                <rect key="frame" x="366" y="13" width="69" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2KD-sO-uAD">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="haltWithSender:" target="XfG-lQ-9wD" id="Jh2-FC-toa"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canStop" id="WMw-Z9-Xdp"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WyD-0t-hNf">
+                                <rect key="frame" x="437" y="12" width="101" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Debugger" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cOy-kM-e3a">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="UbU-aT-1Sl" kind="show" id="kQ6-Yx-kXd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -737,6 +794,7 @@
                         <outlet property="cpu" destination="dtb-O5-HUr" id="gkJ-5S-pas"/>
                         <outlet property="pixelView" destination="lci-A3-0it" id="Lb5-aB-Om2"/>
                         <outlet property="ram" destination="ARW-O3-e7V" id="Zz3-Ee-LBQ"/>
+                        <outlet property="stack" destination="CH8-DP-SLx" id="ijz-1m-OGe"/>
                         <outlet property="vram" destination="eGu-vR-i9Z" id="GC0-xq-DfU"/>
                     </connections>
                 </viewController>
@@ -745,24 +803,6 @@
                 <customObject id="eGu-vR-i9Z" userLabel="VRam" customClass="VRam" customModule="Chip8" customModuleProvider="target"/>
                 <customObject id="ARW-O3-e7V" customClass="Ram" customModule="Chip8" customModuleProvider="target"/>
                 <customObject id="DND-IE-p4T" customClass="Buzzer" customModule="Chip8" customModuleProvider="target"/>
-                <arrayController id="8W5-pj-O0W" userLabel="Ram Array Controller">
-                    <connections>
-                        <binding destination="dtb-O5-HUr" name="selectionIndexes" keyPath="pcIndex" id="RQm-vP-GR0"/>
-                        <binding destination="ARW-O3-e7V" name="contentArray" keyPath="ram" id="K2s-jp-gkF"/>
-                    </connections>
-                </arrayController>
-                <arrayController id="fvr-lA-TPR" userLabel="Stack Array Controller">
-                    <connections>
-                        <binding destination="CH8-DP-SLx" name="selectionIndexes" keyPath="indexSet" id="pKX-n7-RSS"/>
-                        <binding destination="CH8-DP-SLx" name="contentArray" keyPath="stack" id="gAR-8l-AZj"/>
-                    </connections>
-                </arrayController>
-                <customFormatter id="D4y-hy-Nlo" customClass="RegisterFormatter" customModule="Chip8" customModuleProvider="target"/>
-                <arrayController objectClassName="ByteCell" id="iyh-BG-Aoe" userLabel="Register Array Controller">
-                    <connections>
-                        <binding destination="Any-hz-Ssb" name="contentArray" keyPath="registers" id="lPH-0T-v0d"/>
-                    </connections>
-                </arrayController>
                 <customObject id="IeZ-75-jn9" userLabel="KRam" customClass="KRam" customModule="Chip8" customModuleProvider="target"/>
                 <customObject id="qHv-nh-2kn" customClass="Timer" customModule="Chip8" customModuleProvider="target"/>
                 <customObject id="CH8-DP-SLx" customClass="Stack" customModule="Chip8" customModuleProvider="target"/>
@@ -780,7 +820,7 @@
                 </customObject>
                 <customObject id="Any-hz-Ssb" customClass="Registers" customModule="Chip8" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="346.5" y="829.5"/>
+            <point key="canvasLocation" x="95" y="786.5"/>
         </scene>
     </scenes>
 </document>

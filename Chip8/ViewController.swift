@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet var cpu: Cpu!
     @IBOutlet var ram: Ram!
     @IBOutlet var vram: VRam!
+    @IBOutlet var stack: Stack!
     
     @objc dynamic var filePath: String = ""
     
@@ -62,6 +63,16 @@ class ViewController: NSViewController {
         
         chip8View!.delegate = self
         vram.pixelView = pixelView
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        guard let windowController = segue.destinationController as? NSWindowController else { return }
+        
+        if let target = windowController.contentViewController as? DebuggerViewController {
+            target.parentController = self
+            
+            self.cpu.ramTable = target.ramTable
+        }
     }
     
     @IBAction func openFile(sender: AnyObject) {
@@ -114,20 +125,6 @@ class ViewController: NSViewController {
         isRunning = false
         canRun = true
         canStop = false
-    }
-    
-    @IBAction func pause(sender: AnyObject) {
-        cpu.pauseFlag = true
-    }
-    
-    @IBAction func unpause(sender: AnyObject) {
-        cpu.pauseFlag = false
-        
-        cpu.execute()
-    }
-    
-    @IBAction func step(sender: AnyObject) {
-        cpu.execute()
     }
 
     override var representedObject: Any? {

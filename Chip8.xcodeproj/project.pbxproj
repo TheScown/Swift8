@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E12E7EEA20CB352F00DB2CED /* 440.wav in Resources */ = {isa = PBXBuildFile; fileRef = E12E7EE920CB352F00DB2CED /* 440.wav */; };
+		E1307E47212F5EDF00963D25 /* DebuggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1307E46212F5EDF00963D25 /* DebuggerViewController.swift */; };
 		E1556CF720DB030200F48661 /* Cpu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556CF620DB030200F48661 /* Cpu.swift */; };
 		E1556CF920DB048500F48661 /* Ram.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556CF820DB048500F48661 /* Ram.swift */; };
 		E1556CFB20DB099100F48661 /* Buzzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1556CFA20DB099100F48661 /* Buzzer.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		E12E7EE920CB352F00DB2CED /* 440.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 440.wav; path = ../../Downloads/440.wav; sourceTree = "<group>"; };
 		E12E7EEB20CB353200DB2CED /* 440.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440.wav; sourceTree = "<group>"; };
+		E1307E46212F5EDF00963D25 /* DebuggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggerViewController.swift; sourceTree = "<group>"; };
 		E1556CF620DB030200F48661 /* Cpu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cpu.swift; sourceTree = "<group>"; };
 		E1556CF820DB048500F48661 /* Ram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ram.swift; sourceTree = "<group>"; };
 		E1556CFA20DB099100F48661 /* Buzzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buzzer.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				E19EFE6E2102523300332ECF /* Registers.swift */,
 				E19EFE702102529700332ECF /* ByteCell.swift */,
 				E1B9F339210E0A82007BF36A /* Instructions.swift */,
+				E1307E46212F5EDF00963D25 /* DebuggerViewController.swift */,
 			);
 			path = Chip8;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				E1556CF720DB030200F48661 /* Cpu.swift in Sources */,
 				E1556D0320DB8C0600F48661 /* KRam.swift in Sources */,
 				E1556D0120DB0D8100F48661 /* VRam.swift in Sources */,
+				E1307E47212F5EDF00963D25 /* DebuggerViewController.swift in Sources */,
 				E1556CF920DB048500F48661 /* Ram.swift in Sources */,
 				E1556CFB20DB099100F48661 /* Buzzer.swift in Sources */,
 				E1F5C69720CD62B000E1D06C /* Chip8View.swift in Sources */,
