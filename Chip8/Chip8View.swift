@@ -40,7 +40,7 @@ class Chip8View: NSView {
         delegate.halt(sender: sender)
     }
     
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         if menuItem.action == #selector(Chip8View.runChip8(_:)) {
             return delegate.canRun
         }

@@ -27,23 +27,6 @@
 		E1F5C69720CD62B000E1D06C /* Chip8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5C69620CD62B000E1D06C /* Chip8View.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E1ED647520B8868700D53027 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1ED645A20B8868500D53027 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E1ED646120B8868500D53027;
-			remoteInfo = Chip8;
-		};
-		E1ED648020B8868700D53027 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1ED645A20B8868500D53027 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E1ED646120B8868500D53027;
-			remoteInfo = Chip8;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		E12E7EE920CB352F00DB2CED /* 440.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 440.wav; path = ../../Downloads/440.wav; sourceTree = "<group>"; };
 		E12E7EEB20CB353200DB2CED /* 440.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 440.wav; sourceTree = "<group>"; };
@@ -66,27 +49,11 @@
 		E1ED646C20B8868600D53027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1ED646E20B8868600D53027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1ED646F20B8868600D53027 /* Chip8.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chip8.entitlements; sourceTree = "<group>"; };
-		E1ED647420B8868700D53027 /* Chip8Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Chip8Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1ED647F20B8868700D53027 /* Chip8UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Chip8UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F5C69620CD62B000E1D06C /* Chip8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip8View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E1ED645F20B8868500D53027 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1ED647120B8868700D53027 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1ED647C20B8868700D53027 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -109,8 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				E1ED646220B8868500D53027 /* Chip8.app */,
-				E1ED647420B8868700D53027 /* Chip8Tests.xctest */,
-				E1ED647F20B8868700D53027 /* Chip8UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,42 +127,6 @@
 			productReference = E1ED646220B8868500D53027 /* Chip8.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E1ED647320B8868700D53027 /* Chip8Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E1ED648B20B8868700D53027 /* Build configuration list for PBXNativeTarget "Chip8Tests" */;
-			buildPhases = (
-				E1ED647020B8868700D53027 /* Sources */,
-				E1ED647120B8868700D53027 /* Frameworks */,
-				E1ED647220B8868700D53027 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E1ED647620B8868700D53027 /* PBXTargetDependency */,
-			);
-			name = Chip8Tests;
-			productName = Chip8Tests;
-			productReference = E1ED647420B8868700D53027 /* Chip8Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		E1ED647E20B8868700D53027 /* Chip8UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E1ED648E20B8868700D53027 /* Build configuration list for PBXNativeTarget "Chip8UITests" */;
-			buildPhases = (
-				E1ED647B20B8868700D53027 /* Sources */,
-				E1ED647C20B8868700D53027 /* Frameworks */,
-				E1ED647D20B8868700D53027 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E1ED648120B8868700D53027 /* PBXTargetDependency */,
-			);
-			name = Chip8UITests;
-			productName = Chip8UITests;
-			productReference = E1ED647F20B8868700D53027 /* Chip8UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,14 +139,7 @@
 				TargetAttributes = {
 					E1ED646120B8868500D53027 = {
 						CreatedOnToolsVersion = 9.3.1;
-					};
-					E1ED647320B8868700D53027 = {
-						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = E1ED646120B8868500D53027;
-					};
-					E1ED647E20B8868700D53027 = {
-						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = E1ED646120B8868500D53027;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -235,8 +157,6 @@
 			projectRoot = "";
 			targets = (
 				E1ED646120B8868500D53027 /* Chip8 */,
-				E1ED647320B8868700D53027 /* Chip8Tests */,
-				E1ED647E20B8868700D53027 /* Chip8UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -249,20 +169,6 @@
 				E12E7EEA20CB352F00DB2CED /* 440.wav in Resources */,
 				E1ED646A20B8868600D53027 /* Assets.xcassets in Resources */,
 				E1ED646D20B8868600D53027 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1ED647220B8868700D53027 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1ED647D20B8868700D53027 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,34 +197,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1ED647020B8868700D53027 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1ED647B20B8868700D53027 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E1ED647620B8868700D53027 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E1ED646120B8868500D53027 /* Chip8 */;
-			targetProxy = E1ED647520B8868700D53027 /* PBXContainerItemProxy */;
-		};
-		E1ED648120B8868700D53027 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E1ED646120B8868500D53027 /* Chip8 */;
-			targetProxy = E1ED648020B8868700D53027 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E1ED646B20B8868600D53027 /* Main.storyboard */ = {
@@ -459,7 +338,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Chip8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -477,85 +356,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Chip8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		E1ED648C20B8868700D53027 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Chip8Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Chip8Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chip8.app/Contents/MacOS/Chip8";
-			};
-			name = Debug;
-		};
-		E1ED648D20B8868700D53027 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Chip8Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Chip8Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chip8.app/Contents/MacOS/Chip8";
-			};
-			name = Release;
-		};
-		E1ED648F20B8868700D53027 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Chip8UITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Chip8UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = Chip8;
-			};
-			name = Debug;
-		};
-		E1ED649020B8868700D53027 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Chip8UITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Chip8UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = Chip8;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -576,24 +377,6 @@
 			buildConfigurations = (
 				E1ED648920B8868700D53027 /* Debug */,
 				E1ED648A20B8868700D53027 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E1ED648B20B8868700D53027 /* Build configuration list for PBXNativeTarget "Chip8Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E1ED648C20B8868700D53027 /* Debug */,
-				E1ED648D20B8868700D53027 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E1ED648E20B8868700D53027 /* Build configuration list for PBXNativeTarget "Chip8UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E1ED648F20B8868700D53027 /* Debug */,
-				E1ED649020B8868700D53027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
