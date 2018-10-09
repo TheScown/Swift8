@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14215.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -111,7 +114,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Chip 8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="Chip8Window" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
+                    <window key="window" title="Chip 8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Chip8Window" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="217" y="505" width="552" height="339"/>
@@ -134,7 +137,7 @@
         <scene sceneID="H9H-z4-aoV">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="UbU-aT-1Sl" sceneMemberID="viewController">
-                    <window key="window" title="Debugger" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="DebuggerWindow" animationBehavior="default" tabbingMode="disallowed" id="kvt-CM-PCy">
+                    <window key="window" title="Debugger" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="DebuggerWindow" animationBehavior="default" tabbingMode="disallowed" id="kvt-CM-PCy">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="893" y="320" width="535" height="424"/>
@@ -173,7 +176,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" editable="NO" width="49" minWidth="40" maxWidth="1000" id="TBd-Y4-2JJ">
+                                                <tableColumn editable="NO" width="49" minWidth="40" maxWidth="1000" id="TBd-Y4-2JJ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -221,7 +224,7 @@
                                                         </binding>
                                                     </connections>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="52" minWidth="10" maxWidth="3.4028234663852886e+38" id="LtR-b8-D4I">
+                                                <tableColumn width="52" minWidth="10" maxWidth="3.4028234663852886e+38" id="LtR-b8-D4I">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -300,7 +303,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" editable="NO" width="49" minWidth="40" maxWidth="1000" id="0f5-rE-KFq">
+                                                <tableColumn editable="NO" width="49" minWidth="40" maxWidth="1000" id="0f5-rE-KFq">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -340,7 +343,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="52" minWidth="10" maxWidth="3.4028234663852886e+38" id="Jpv-ss-wwL">
+                                                <tableColumn width="52" minWidth="10" maxWidth="3.4028234663852886e+38" id="Jpv-ss-wwL">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -465,7 +468,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="28" minWidth="10" maxWidth="3.4028234663852886e+38" id="x7g-W1-9gQ">
+                                                <tableColumn width="28" minWidth="10" maxWidth="3.4028234663852886e+38" id="x7g-W1-9gQ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -498,7 +501,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="55" minWidth="40" maxWidth="1000" id="V2I-OC-a7G">
+                                                <tableColumn width="55" minWidth="40" maxWidth="1000" id="V2I-OC-a7G">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -534,7 +537,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="55" minWidth="40" maxWidth="1000" id="Sc6-7C-pXG">
+                                                <tableColumn width="55" minWidth="40" maxWidth="1000" id="Sc6-7C-pXG">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -570,7 +573,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="109" minWidth="10" maxWidth="3.4028234663852886e+38" id="Pj4-7Z-IqV">
+                                                <tableColumn width="109" minWidth="10" maxWidth="3.4028234663852886e+38" id="Pj4-7Z-IqV">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -674,6 +677,63 @@
                             </button>
                         </subviews>
                     </view>
+                    <touchBar key="touchBar" id="LPd-QZ-QHv">
+                        <touchBarItems>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="mCl-ab-xQb"/>
+                            <touchBarItem id="A4e-ut-JVy">
+                                <viewController key="viewController" id="IyK-C6-z9O">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Od6-BP-1Th">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSTouchBarPauseTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jrw-mP-0UH">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="pauseWithSender:" target="qoz-2m-Pfp" id="YEP-eo-97I"/>
+                                            <binding destination="qoz-2m-Pfp" name="enabled" keyPath="parentController.canPause" id="aP9-xn-Amp"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                            <touchBarItem id="3wO-JM-IeB">
+                                <viewController key="viewController" id="7mB-AK-1Mn">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n2j-5U-IWu">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSTouchBarPlayTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Wm-wE-8vw">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="unpauseWithSender:" target="qoz-2m-Pfp" id="sUN-sX-RFa"/>
+                                            <binding destination="qoz-2m-Pfp" name="enabled" keyPath="parentController.canContinue" id="DC8-52-VlQ"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                            <touchBarItem id="05H-50-xdS">
+                                <viewController key="viewController" id="q6S-io-8Xg">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uJy-60-Nk7">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSTouchBarPlayPauseTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k1l-tn-rfU">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="stepWithSender:" target="qoz-2m-Pfp" id="KrQ-Z0-sR4"/>
+                                            <binding destination="qoz-2m-Pfp" name="enabled" keyPath="parentController.canContinue" id="AZY-eU-HjK"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="iBI-No-dgi"/>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
                         <outlet property="ramTable" destination="oQV-SO-dVt" id="Mt5-wU-t2i"/>
                     </connections>
@@ -681,15 +741,15 @@
                 <customObject id="Bom-eb-P8E" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="2BA-W8-ioV" userLabel="Ram Array Controller">
                     <connections>
-                        <binding destination="qoz-2m-Pfp" name="contentArray" keyPath="parentController.ram.ram" id="Kkj-MR-a0N"/>
                         <binding destination="qoz-2m-Pfp" name="selectionIndexes" keyPath="parentController.cpu.pcIndex" id="uFh-UF-IdE"/>
+                        <binding destination="qoz-2m-Pfp" name="contentArray" keyPath="parentController.ram.ram" id="Kkj-MR-a0N"/>
                     </connections>
                 </arrayController>
                 <userDefaultsController id="C45-Cc-bo8"/>
                 <arrayController id="1Ky-h3-lta" userLabel="Stack Array Controller">
                     <connections>
-                        <binding destination="qoz-2m-Pfp" name="contentArray" keyPath="parentController.stack.stack" id="70k-y5-NOt"/>
                         <binding destination="qoz-2m-Pfp" name="selectionIndexes" keyPath="parentController.stack.indexSet" id="4Yf-lc-sz1"/>
+                        <binding destination="qoz-2m-Pfp" name="contentArray" keyPath="parentController.stack.stack" id="70k-y5-NOt"/>
                     </connections>
                 </arrayController>
                 <arrayController id="w0n-Ao-bXI" userLabel="Register Array Controller">
@@ -699,7 +759,7 @@
                 </arrayController>
                 <customFormatter id="bmu-aR-Si4" customClass="RegisterFormatter" customModule="Chip8" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="797" y="1019"/>
+            <point key="canvasLocation" x="796.5" y="1019"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -721,7 +781,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="a8g-ht-hHI">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
@@ -789,6 +849,82 @@
                             <outlet property="kram" destination="IeZ-75-jn9" id="PPH-Bi-2BS"/>
                         </connections>
                     </view>
+                    <touchBar key="touchBar" id="YfZ-7l-7uh">
+                        <touchBarItems>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="uSg-B2-Ott"/>
+                            <touchBarItem id="OTu-Zg-gpt">
+                                <viewController key="viewController" title="Touch Bar Open View Controller" id="Y8L-mL-UCu">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U24-az-vMg">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Open" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jfb-ZV-30B">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="openFileWithSender:" target="XfG-lQ-9wD" id="XEC-t8-E0W"/>
+                                            <binding destination="XfG-lQ-9wD" name="hidden" keyPath="isRunning" previousBinding="j6H-q8-C2G" id="LZE-7i-Mt9"/>
+                                            <binding destination="XfG-lQ-9wD" name="enabled" keyPath="isRunning" id="j6H-q8-C2G">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                            <touchBarItem id="Tjz-Vh-FSk">
+                                <viewController key="viewController" title="Touch Bar Run View Controller" id="Kq0-yt-4es">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g7D-Oi-yC1">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lGO-gb-nSA">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <connections>
+                                                <action selector="runWithSender:" target="XfG-lQ-9wD" id="LJN-Q1-Lii"/>
+                                            </connections>
+                                        </buttonCell>
+                                        <color key="bezelColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canRun" id="9rm-S8-89x"/>
+                                            <binding destination="XfG-lQ-9wD" name="hidden" keyPath="canRun" previousBinding="9rm-S8-89x" id="Bge-De-Nqk">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                            <touchBarItem id="mt9-VB-r6P">
+                                <viewController key="viewController" title="Touch Bar Stop View Controller" id="HB7-xi-Cfw">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z3W-PA-3NZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HuW-9K-JVV">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <action selector="haltWithSender:" target="XfG-lQ-9wD" id="LUD-Ns-5cp"/>
+                                            <binding destination="XfG-lQ-9wD" name="hidden" keyPath="canStop" previousBinding="efg-Rd-DDV" id="WlV-2x-AGR">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="XfG-lQ-9wD" name="enabled" keyPath="canStop" id="efg-Rd-DDV"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="T73-0Q-j1B"/>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
                         <outlet property="chip8View" destination="m2S-Jp-Qdl" id="TB0-ce-36V"/>
                         <outlet property="cpu" destination="dtb-O5-HUr" id="gkJ-5S-pas"/>
@@ -823,4 +959,9 @@
             <point key="canvasLocation" x="95" y="786.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSTouchBarPauseTemplate" width="11" height="30"/>
+        <image name="NSTouchBarPlayPauseTemplate" width="23" height="30"/>
+        <image name="NSTouchBarPlayTemplate" width="14" height="30"/>
+    </resources>
 </document>
