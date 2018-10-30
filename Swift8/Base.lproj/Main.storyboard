@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14215.3"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14460.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
@@ -14,18 +14,18 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Chip8" id="1Xt-HY-uBw">
+                            <menuItem title="Swift8" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Chip8" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Swift8" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Chip8" id="5kV-Vb-QxS">
+                                        <menuItem title="About Swift8" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide Chip8" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Swift8" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -43,7 +43,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Chip8" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Swift8" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -104,7 +104,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Chip8" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Swift8" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,7 +114,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Chip 8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Chip8Window" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
+                    <window key="window" title="Swift8" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Chip8Window" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="217" y="505" width="552" height="339"/>
@@ -157,7 +157,7 @@
         <!--Debugger-->
         <scene sceneID="Ghx-aS-XtK">
             <objects>
-                <viewController title="Debugger" showSeguePresentationStyle="single" id="qoz-2m-Pfp" customClass="DebuggerViewController" customModule="Chip8" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Debugger" showSeguePresentationStyle="single" id="qoz-2m-Pfp" customClass="DebuggerViewController" customModule="Swift8" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Jwl-Gd-UNJ">
                         <rect key="frame" x="0.0" y="0.0" width="535" height="424"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -824,19 +824,19 @@
                         <binding destination="qoz-2m-Pfp" name="contentArray" keyPath="parentController.cpu.V.registers" id="CJE-Cl-HdQ"/>
                     </connections>
                 </arrayController>
-                <customFormatter id="bmu-aR-Si4" customClass="RegisterFormatter" customModule="Chip8" customModuleProvider="target"/>
+                <customFormatter id="bmu-aR-Si4" customClass="RegisterFormatter" customModule="Swift8" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="796.5" y="1019"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Chip8" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="Chip8View" customModule="Chip8" customModuleProvider="target">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Swift8" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="Chip8View" customModule="Swift8" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="552" height="339"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lci-A3-0it" customClass="PixelView" customModule="Chip8" customModuleProvider="target">
+                            <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lci-A3-0it" customClass="PixelView" customModule="Swift8" customModuleProvider="target">
                                 <rect key="frame" x="20" y="63" width="512" height="256"/>
                                 <connections>
                                     <outlet property="vram" destination="eGu-vR-i9Z" id="rnR-ZM-xFf"/>
@@ -1014,13 +1014,13 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="M0V-DW-5MN"/>
-                <customObject id="eGu-vR-i9Z" userLabel="VRam" customClass="VRam" customModule="Chip8" customModuleProvider="target"/>
-                <customObject id="ARW-O3-e7V" customClass="Ram" customModule="Chip8" customModuleProvider="target"/>
-                <customObject id="DND-IE-p4T" customClass="Buzzer" customModule="Chip8" customModuleProvider="target"/>
-                <customObject id="IeZ-75-jn9" userLabel="KRam" customClass="KRam" customModule="Chip8" customModuleProvider="target"/>
-                <customObject id="qHv-nh-2kn" customClass="Timer" customModule="Chip8" customModuleProvider="target"/>
-                <customObject id="CH8-DP-SLx" customClass="Stack" customModule="Chip8" customModuleProvider="target"/>
-                <customObject id="dtb-O5-HUr" customClass="Cpu" customModule="Chip8" customModuleProvider="target">
+                <customObject id="eGu-vR-i9Z" userLabel="VRam" customClass="VRam" customModule="Swift8" customModuleProvider="target"/>
+                <customObject id="ARW-O3-e7V" customClass="Ram" customModule="Swift8" customModuleProvider="target"/>
+                <customObject id="DND-IE-p4T" customClass="Buzzer" customModule="Swift8" customModuleProvider="target"/>
+                <customObject id="IeZ-75-jn9" userLabel="KRam" customClass="KRam" customModule="Swift8" customModuleProvider="target"/>
+                <customObject id="qHv-nh-2kn" customClass="Timer" customModule="Swift8" customModuleProvider="target"/>
+                <customObject id="CH8-DP-SLx" customClass="Stack" customModule="Swift8" customModuleProvider="target"/>
+                <customObject id="dtb-O5-HUr" customClass="Cpu" customModule="Swift8" customModuleProvider="target">
                     <connections>
                         <outlet property="V" destination="Any-hz-Ssb" id="icm-xt-OUQ"/>
                         <outlet property="buzzer" destination="DND-IE-p4T" id="IJw-in-RIp"/>
@@ -1032,7 +1032,7 @@
                         <outlet property="vram" destination="eGu-vR-i9Z" id="Xcm-NB-b48"/>
                     </connections>
                 </customObject>
-                <customObject id="Any-hz-Ssb" customClass="Registers" customModule="Chip8" customModuleProvider="target"/>
+                <customObject id="Any-hz-Ssb" customClass="Registers" customModule="Swift8" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="95" y="786.5"/>
         </scene>

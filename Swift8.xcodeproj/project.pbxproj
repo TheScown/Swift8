@@ -43,14 +43,15 @@
 		E19EFE6E2102523300332ECF /* Registers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registers.swift; sourceTree = "<group>"; };
 		E19EFE702102529700332ECF /* ByteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteCell.swift; sourceTree = "<group>"; };
 		E1B31ECD2189195300F41442 /* CHIP 8 Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CHIP 8 Logo.png"; path = "../../../Desktop/CHIP 8 Logo.png"; sourceTree = "<group>"; };
+		E1B31ECF21891BBF00F41442 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E1B9F339210E0A82007BF36A /* Instructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
-		E1ED646220B8868500D53027 /* Chip8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chip8.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1ED646220B8868500D53027 /* Swift8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED646520B8868500D53027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1ED646720B8868500D53027 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E1ED646920B8868600D53027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1ED646C20B8868600D53027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1ED646E20B8868600D53027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1ED646F20B8868600D53027 /* Chip8.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chip8.entitlements; sourceTree = "<group>"; };
+		E1ED646F20B8868600D53027 /* Swift8.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift8.entitlements; sourceTree = "<group>"; };
 		E1F5C69620CD62B000E1D06C /* Chip8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip8View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +69,8 @@
 		E1ED645920B8868500D53027 = {
 			isa = PBXGroup;
 			children = (
-				E1ED646420B8868500D53027 /* Chip8 */,
+				E1B31ECF21891BBF00F41442 /* README.md */,
+				E1ED646420B8868500D53027 /* Swift8 */,
 				E1ED646320B8868500D53027 /* Products */,
 				E12E7EE920CB352F00DB2CED /* 440.wav */,
 			);
@@ -77,12 +79,12 @@
 		E1ED646320B8868500D53027 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1ED646220B8868500D53027 /* Chip8.app */,
+				E1ED646220B8868500D53027 /* Swift8.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E1ED646420B8868500D53027 /* Chip8 */ = {
+		E1ED646420B8868500D53027 /* Swift8 */ = {
 			isa = PBXGroup;
 			children = (
 				E1ED646520B8868500D53027 /* AppDelegate.swift */,
@@ -92,7 +94,7 @@
 				E1ED646920B8868600D53027 /* Assets.xcassets */,
 				E1ED646B20B8868600D53027 /* Main.storyboard */,
 				E1ED646E20B8868600D53027 /* Info.plist */,
-				E1ED646F20B8868600D53027 /* Chip8.entitlements */,
+				E1ED646F20B8868600D53027 /* Swift8.entitlements */,
 				E17DE0F120C06E3900F1F0D5 /* PixelView.swift */,
 				E1F5C69620CD62B000E1D06C /* Chip8View.swift */,
 				E1556CF620DB030200F48661 /* Cpu.swift */,
@@ -107,15 +109,15 @@
 				E1B9F339210E0A82007BF36A /* Instructions.swift */,
 				E1307E46212F5EDF00963D25 /* DebuggerViewController.swift */,
 			);
-			path = Chip8;
+			path = Swift8;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E1ED646120B8868500D53027 /* Chip8 */ = {
+		E1ED646120B8868500D53027 /* Swift8 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1ED648820B8868700D53027 /* Build configuration list for PBXNativeTarget "Chip8" */;
+			buildConfigurationList = E1ED648820B8868700D53027 /* Build configuration list for PBXNativeTarget "Swift8" */;
 			buildPhases = (
 				E1ED645E20B8868500D53027 /* Sources */,
 				E1ED645F20B8868500D53027 /* Frameworks */,
@@ -125,9 +127,9 @@
 			);
 			dependencies = (
 			);
-			name = Chip8;
+			name = Swift8;
 			productName = Chip8;
-			productReference = E1ED646220B8868500D53027 /* Chip8.app */;
+			productReference = E1ED646220B8868500D53027 /* Swift8.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -146,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E1ED645D20B8868500D53027 /* Build configuration list for PBXProject "Chip8" */;
+			buildConfigurationList = E1ED645D20B8868500D53027 /* Build configuration list for PBXProject "Swift8" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -159,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1ED646120B8868500D53027 /* Chip8 */,
+				E1ED646120B8868500D53027 /* Swift8 */,
 			);
 		};
 /* End PBXProject section */
@@ -332,15 +334,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Chip8/Chip8.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Swift8/Swift8.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Chip8/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Swift8/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Chip8;
+				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Swift8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -350,15 +352,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Chip8/Chip8.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Swift8/Swift8.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Chip8/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Swift8/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Chip8;
+				PRODUCT_BUNDLE_IDENTIFIER = space.scown.Swift8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -367,7 +369,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E1ED645D20B8868500D53027 /* Build configuration list for PBXProject "Chip8" */ = {
+		E1ED645D20B8868500D53027 /* Build configuration list for PBXProject "Swift8" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1ED648620B8868700D53027 /* Debug */,
@@ -376,7 +378,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1ED648820B8868700D53027 /* Build configuration list for PBXNativeTarget "Chip8" */ = {
+		E1ED648820B8868700D53027 /* Build configuration list for PBXNativeTarget "Swift8" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1ED648920B8868700D53027 /* Debug */,
