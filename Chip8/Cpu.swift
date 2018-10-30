@@ -220,7 +220,7 @@ class Cpu: NSObject {
     }
     
     func RND(register: UInt8, byte: UInt8) {
-        V[Int(register)] = UInt8(arc4random_uniform(256)) & byte
+        V[Int(register)] = UInt8.random(in: 0 ... 255) & byte
     }
     
     func DRW(registerX: UInt8, registerY: UInt8, length: UInt8) {
