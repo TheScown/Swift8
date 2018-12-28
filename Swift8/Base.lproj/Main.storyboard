@@ -204,6 +204,7 @@
                                                                                     <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
                                                                                 </dictionary>
                                                                             </binding>
+                                                                            <outlet property="formatter" destination="bmu-aR-Si4" id="dbQ-5m-0tm"/>
                                                                         </connections>
                                                                     </textFieldCell>
                                                                 </textField>
